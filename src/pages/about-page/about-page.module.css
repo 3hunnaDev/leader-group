@@ -1,0 +1,6 @@
+.root {
+  min-height: calc(100vh - 7.5rem);
+  background-color: var(--app-surface-color);
+  border: 1px dashed var(--app-border-color-strong);
+  border-radius: 0.75rem;
+}

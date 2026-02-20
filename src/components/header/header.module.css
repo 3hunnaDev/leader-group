@@ -1,0 +1,24 @@
+.root {
+  padding: var(--space-md) var(--space-lg);
+}
+
+.inner {
+  display: flex;
+  gap: var(--space-lg);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.action {
+  flex-shrink: 0;
+}
+
+@media (width <= 768px) {
+  .root {
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  .action {
+    width: 100%;
+  }
+}
