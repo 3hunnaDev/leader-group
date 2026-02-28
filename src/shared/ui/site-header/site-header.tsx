@@ -1,25 +1,25 @@
-import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
-import closeIcon from '../../../assets/Menu/Close_MD.svg'
-import hamburgerIcon from '../../../assets/Menu/Hamburger_MD.svg'
-import { navigationItems } from '../../config/navigation/navigation-items'
-import './site-header.css'
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import closeIcon from "../../../assets/icons/Menu/Close_MD.svg";
+import hamburgerIcon from "../../../assets/icons/Menu/Hamburger_MD.svg";
+import { navigationItems } from "../../config/navigation/navigation-items";
+import "./site-header.css";
 
 export function SiteHeader() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     if (!isMenuOpen) {
-      document.body.style.removeProperty('overflow')
-      return
+      document.body.style.removeProperty("overflow");
+      return;
     }
 
-    document.body.style.overflow = 'hidden'
+    document.body.style.overflow = "hidden";
 
     return () => {
-      document.body.style.removeProperty('overflow')
-    }
-  }, [isMenuOpen])
+      document.body.style.removeProperty("overflow");
+    };
+  }, [isMenuOpen]);
 
   return (
     <header className="site-header">
@@ -39,19 +39,19 @@ export function SiteHeader() {
 
           <nav className="site-header__nav">
             {navigationItems.map((item) => {
-              const isPrimaryItem = item.href === '/#home'
+              const isPrimaryItem = item.href === "/#home";
 
               return (
                 <a
                   key={item.href}
                   href={item.href}
                   className={`site-header__nav-link ${
-                    isPrimaryItem ? 'site-header__nav-link--active' : ''
+                    isPrimaryItem ? "site-header__nav-link--active" : ""
                   }`}
                 >
                   {item.label}
                 </a>
-              )
+              );
             })}
           </nav>
 
@@ -104,5 +104,5 @@ export function SiteHeader() {
         </div>
       ) : null}
     </header>
-  )
+  );
 }
