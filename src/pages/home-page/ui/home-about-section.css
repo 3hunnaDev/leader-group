@@ -1,0 +1,126 @@
+.home-about {
+  border: 1px solid var(--color-border-soft);
+  border-radius: 32px;
+  background: var(--color-surface);
+  padding: 1.5rem;
+}
+
+.home-about__label {
+  display: inline-flex;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 999px;
+  padding: 0.25rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text);
+}
+
+.home-about__title {
+  margin: 1.25rem 0 0;
+  font-size: clamp(2rem, 4.8vw, 4.2rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 0.98;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+}
+
+.home-about__title-soft {
+  color: var(--color-text-soft);
+}
+
+.home-about__description {
+  margin: 1.25rem 0 0;
+  max-width: 64rem;
+  font-size: 0.875rem;
+  line-height: 1.75;
+  color: var(--color-text-muted);
+}
+
+.home-about__grid {
+  margin-top: 2rem;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.home-about__card {
+  border: 1px solid var(--color-border-soft);
+  border-radius: 24px;
+  background: var(--color-surface-2);
+  padding: 1.25rem;
+}
+
+.home-about__card--primary {
+  border-color: var(--color-border-strong);
+  background: var(--color-surface-dark);
+}
+
+.home-about__card-meta {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+  color: var(--color-text-muted);
+}
+
+.home-about__card-title {
+  margin: 0.75rem 0 0;
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+}
+
+.home-about__card-description {
+  margin: 0.75rem 0 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+.home-about__card--primary .home-about__card-meta {
+  color: rgba(244, 244, 244, 0.8);
+}
+
+.home-about__card--primary .home-about__card-title {
+  color: var(--color-text-inverse);
+}
+
+.home-about__card--primary .home-about__card-description {
+  color: rgba(244, 244, 244, 0.86);
+}
+
+@media (min-width: 640px) {
+  .home-about {
+    padding: 2rem;
+  }
+
+  .home-about__description {
+    font-size: 1rem;
+  }
+
+  .home-about__card {
+    padding: 1.5rem;
+  }
+
+  .home-about__card-title {
+    font-size: 1.875rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .home-about__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .home-about {
+    padding: 3rem;
+  }
+}
