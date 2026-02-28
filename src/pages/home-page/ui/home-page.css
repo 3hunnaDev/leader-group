@@ -1,11 +1,5 @@
 .home-page {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-}
-
-@media (min-width: 1024px) {
-  .home-page {
-    gap: 2.5rem;
-  }
+  padding-top: clamp(2.3rem, 3.8vw, 3rem);
 }

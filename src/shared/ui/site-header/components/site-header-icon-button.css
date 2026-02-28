@@ -1,0 +1,28 @@
+.site-header-icon-button {
+  width: 50px;
+  height: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid var(--header-border-pill, rgba(255, 255, 255, 0.5));
+  background: var(--header-surface-bg, rgba(245, 245, 245, 0.2));
+  color: var(--color-surface-dark);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition:
+    background-color 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.site-header-icon-button:hover {
+  background-color: rgba(255, 255, 255, 0.35);
+  border-color: rgba(255, 255, 255, 0.72);
+}
+
+.site-header-icon-button__icon {
+  width: 1.35rem;
+  height: 1.35rem;
+  display: block;
+  filter: brightness(0) saturate(100%);
+}

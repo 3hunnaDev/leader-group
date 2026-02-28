@@ -1,0 +1,38 @@
+.site-header-brand-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  flex-shrink: 0;
+  border-radius: 999px;
+  border: 1px solid var(--header-border-pill, rgba(255, 255, 255, 0.5));
+  background: var(--header-surface-bg, rgba(245, 245, 245, 0.2));
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 10px 26px -18px rgba(33, 33, 38, 0.4);
+  padding: clamp(0.68rem, 1.12vw, 0.9rem) clamp(0.96rem, 1.55vw, 1.34rem);
+  transition:
+    border-color 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.site-header-brand-pill__icon {
+  display: block;
+  inline-size: auto;
+  block-size: clamp(24px, 3.2vw, 38px);
+  pointer-events: none;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  filter: var(--header-brand-icon-filter, none);
+  transition: filter 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+}

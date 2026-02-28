@@ -1,0 +1,48 @@
+.site-header-nav-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid var(--header-border-pill-weak, rgba(255, 255, 255, 0.22));
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  background: var(--color-surface-dark);
+  color: var(--color-text-inverse);
+  box-shadow: 0 10px 24px -18px rgba(33, 33, 38, 0.42);
+  will-change: background-color, color, border-color, box-shadow, filter;
+  transform: translateZ(0);
+  transition:
+    filter 0.44s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.48s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.44s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.44s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.44s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.44s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.site-header-nav-pill:hover {
+  filter: brightness(1.12);
+}
+
+.site-header-nav-pill--nav {
+  padding: 0.76rem 1.34rem;
+}
+
+.site-header-nav-pill--cta {
+  padding: 1.05rem 1.95rem;
+  box-shadow: 0 12px 28px -16px rgba(33, 33, 38, 0.5);
+}
+
+.site-header-nav-pill--active {
+  background: var(--color-white);
+  color: var(--color-text);
+  border-color: transparent;
+  filter: none;
+}
+
+.site-header-nav-pill--mobile {
+  border-color: var(--header-border-mobile-weak, rgba(255, 255, 255, 0.36));
+}

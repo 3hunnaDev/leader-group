@@ -1,108 +1,125 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import closeIcon from "../../../assets/icons/Menu/Close_MD.svg";
-import hamburgerIcon from "../../../assets/icons/Menu/Hamburger_MD.svg";
+import { useEffect, useRef, useState } from "react";
 import { navigationItems } from "../../config/navigation/navigation-items";
+import { SiteHeaderDesktop } from "./components/site-header-desktop";
+import { SiteHeaderMobile } from "./components/site-header-mobile";
 import "./site-header.css";
+
+const BASE_TITLE = "Leader Group";
+
+function getCurrentSectionTitle() {
+  if (typeof window === "undefined") {
+    return BASE_TITLE;
+  }
+
+  const locationTarget = `${window.location.pathname}${window.location.hash}`;
+  const currentItem = navigationItems.find(
+    (item) => item.href === locationTarget,
+  );
+  const homeItem = navigationItems.find((item) => item.href === "/#home");
+  const sectionLabel = currentItem?.label ?? homeItem?.label;
+
+  return sectionLabel ? `${sectionLabel} :: ${BASE_TITLE}` : BASE_TITLE;
+}
 
 export function SiteHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    if (!isMenuOpen) {
-      document.body.style.removeProperty("overflow");
+    const desktopQuery = window.matchMedia("(min-width: 1024px)");
+
+    const handleDesktopMode = (event: MediaQueryListEvent) => {
+      if (event.matches) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    desktopQuery.addEventListener("change", handleDesktopMode);
+
+    return () => {
+      desktopQuery.removeEventListener("change", handleDesktopMode);
+    };
+  }, []);
+
+  useEffect(() => {
+    const headerElement = headerRef.current;
+
+    if (!headerElement) {
       return;
     }
 
-    document.body.style.overflow = "hidden";
+    let frameId = 0;
+
+    const updateHeaderTone = () => {
+      const headerRect = headerElement.getBoundingClientRect();
+      const darkZones = document.querySelectorAll<HTMLElement>(
+        "[data-header-tone='dark']",
+      );
+
+      const isOnDarkZone = Array.from(darkZones).some((zone) => {
+        const zoneRect = zone.getBoundingClientRect();
+
+        return (
+          zoneRect.bottom > headerRect.top && zoneRect.top < headerRect.bottom
+        );
+      });
+
+      headerElement.classList.toggle("site-header--on-dark", isOnDarkZone);
+    };
+
+    const scheduleHeaderToneUpdate = () => {
+      if (frameId) {
+        cancelAnimationFrame(frameId);
+      }
+
+      frameId = window.requestAnimationFrame(updateHeaderTone);
+    };
+
+    scheduleHeaderToneUpdate();
+
+    window.addEventListener("scroll", scheduleHeaderToneUpdate, {
+      passive: true,
+    });
+    window.addEventListener("resize", scheduleHeaderToneUpdate);
+    window.addEventListener("load", scheduleHeaderToneUpdate);
+    window.addEventListener("hashchange", scheduleHeaderToneUpdate);
 
     return () => {
-      document.body.style.removeProperty("overflow");
+      if (frameId) {
+        cancelAnimationFrame(frameId);
+      }
+
+      window.removeEventListener("scroll", scheduleHeaderToneUpdate);
+      window.removeEventListener("resize", scheduleHeaderToneUpdate);
+      window.removeEventListener("load", scheduleHeaderToneUpdate);
+      window.removeEventListener("hashchange", scheduleHeaderToneUpdate);
     };
-  }, [isMenuOpen]);
+  }, []);
+
+  useEffect(() => {
+    const updatePageTitle = () => {
+      document.title = getCurrentSectionTitle();
+    };
+
+    updatePageTitle();
+    window.addEventListener("hashchange", updatePageTitle);
+    window.addEventListener("popstate", updatePageTitle);
+
+    return () => {
+      window.removeEventListener("hashchange", updatePageTitle);
+      window.removeEventListener("popstate", updatePageTitle);
+    };
+  }, []);
 
   return (
-    <header className="site-header">
-      <div className="site-header__shell">
-        <div className="site-header__row">
-          <Link to="/" className="site-header__brand">
-            <img
-              src="https://static.tildacdn.com/tild3333-3430-4535-b536-656535633033/Group_1771.svg"
-              alt="Leader Group"
-              className="site-header__logo"
-            />
-            <div className="site-header__brand-text">
-              <p className="site-header__brand-line">Leader</p>
-              <p className="site-header__brand-line">Group</p>
-            </div>
-          </Link>
-
-          <nav className="site-header__nav">
-            {navigationItems.map((item) => {
-              const isPrimaryItem = item.href === "/#home";
-
-              return (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className={`site-header__nav-link ${
-                    isPrimaryItem ? "site-header__nav-link--active" : ""
-                  }`}
-                >
-                  {item.label}
-                </a>
-              );
-            })}
-          </nav>
-
-          <div className="site-header__cta-wrap">
-            <a href="/#contacts" className="site-header__cta">
-              Оставить заявку
-            </a>
-          </div>
-
-          <button
-            type="button"
-            onClick={() => setIsMenuOpen((state) => !state)}
-            className="site-header__menu-btn"
-            aria-expanded={isMenuOpen}
-            aria-label="Toggle navigation"
-          >
-            <img
-              src={isMenuOpen ? closeIcon : hamburgerIcon}
-              alt=""
-              aria-hidden="true"
-              className="site-header__menu-icon"
-            />
-          </button>
-        </div>
-      </div>
-
-      {isMenuOpen ? (
-        <div className="site-header__mobile-overlay">
-          <div className="site-header__mobile-panel">
-            <nav className="site-header__mobile-nav">
-              {navigationItems.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className="site-header__mobile-link"
-                >
-                  {item.label}
-                </a>
-              ))}
-            </nav>
-            <a
-              href="/#contacts"
-              onClick={() => setIsMenuOpen(false)}
-              className="site-header__mobile-cta"
-            >
-              Оставить заявку
-            </a>
-          </div>
-        </div>
-      ) : null}
+    <header ref={headerRef} className="site-header">
+      <SiteHeaderMobile
+        navigationItems={navigationItems}
+        isMenuOpen={isMenuOpen}
+        onToggleMenu={() => setIsMenuOpen((state) => !state)}
+        onCloseMenu={() => setIsMenuOpen(false)}
+      />
+      <SiteHeaderDesktop navigationItems={navigationItems} />
     </header>
   );
 }
