@@ -20,4 +20,86 @@ export default defineConfig([
       globals: globals.browser,
     },
   },
+  {
+    files: ['src/pages/**/*.{ts,tsx}'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: ['**/app/**', '@app/*'],
+        },
+      ],
+    },
+  },
+  {
+    files: ['src/widgets/**/*.{ts,tsx}'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: ['**/app/**', '**/pages/**', '@app/*', '@pages/*'],
+        },
+      ],
+    },
+  },
+  {
+    files: ['src/features/**/*.{ts,tsx}'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            '**/app/**',
+            '**/pages/**',
+            '**/widgets/**',
+            '@app/*',
+            '@pages/*',
+            '@widgets/*',
+          ],
+        },
+      ],
+    },
+  },
+  {
+    files: ['src/entities/**/*.{ts,tsx}'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            '**/app/**',
+            '**/pages/**',
+            '**/widgets/**',
+            '**/features/**',
+            '@app/*',
+            '@pages/*',
+            '@widgets/*',
+            '@features/*',
+          ],
+        },
+      ],
+    },
+  },
+  {
+    files: ['src/shared/**/*.{ts,tsx}'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            '**/app/**',
+            '**/pages/**',
+            '**/widgets/**',
+            '**/features/**',
+            '**/entities/**',
+            '@app/*',
+            '@pages/*',
+            '@widgets/*',
+            '@features/*',
+            '@entities/*',
+          ],
+        },
+      ],
+    },
+  },
 ])

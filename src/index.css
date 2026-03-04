@@ -1,5 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
-@import "tailwindcss";
+@import './app/layouts/app-layout.css';
+@import './pages/home/ui/home-page.css';
+@import './pages/not-found/ui/not-found-page.css';
+@import './shared/ui/modal/modal.css';
+@import './widgets/site-header/ui/site-header.css';
+@import './widgets/site-header/ui/components/site-header-brand-pill.css';
+@import './widgets/site-header/ui/components/site-header-nav-pill.css';
+@import './widgets/site-header/ui/components/site-header-icon-button.css';
+@import './widgets/home/hero/ui/home-hero-section.css';
+@import './widgets/home/services/ui/home-services-section.css';
+@import './widgets/home/about/ui/home-about-section.css';
+@import './widgets/home/projects/ui/home-projects-section.css';
+@import './widgets/home/contact/ui/home-contact-section.css';
 
 @layer base {
   :root {
@@ -14,7 +25,7 @@
     --color-border-soft: #d9dadd;
     --color-border-strong: #3a3b40;
     --color-white: #ffffff;
-    font-family: Manrope, Inter, "Segoe UI", sans-serif;
+    font-family: Manrope, Inter, 'Segoe UI', sans-serif;
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -35,5 +46,10 @@
 
   * {
     box-sizing: border-box;
+  }
+
+  :where(a, button, input, select, textarea):focus-visible {
+    outline: 2px solid var(--focus-ring, var(--color-surface-dark));
+    outline-offset: 2px;
   }
 }

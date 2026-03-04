@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom'
+import { HomePage } from '@pages/home'
+import { NotFoundPage } from '@pages/not-found'
 import { AppLayout } from '../layouts/app-layout'
-import { HomePage } from '../../pages/home-page/ui/home-page'
-import { NotFoundPage } from '../../pages/not-found-page/ui/not-found-page'
 
 export const appRouter = createBrowserRouter([
   {
