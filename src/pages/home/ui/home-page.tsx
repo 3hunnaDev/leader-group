@@ -5,6 +5,7 @@ import {
   HomeProjectsSection,
   HomeServicesSection,
 } from '@widgets/home'
+import './home-page.css'
 
 export function HomePage() {
   return (

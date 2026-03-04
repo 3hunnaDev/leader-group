@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import homePrimeImage from '@assets/images/021.jpg'
+import './home-hero-section.css'
 
 const WARRANTY_TICKER_ITEMS = [
   '3 года гарантии на запчасти и работы',

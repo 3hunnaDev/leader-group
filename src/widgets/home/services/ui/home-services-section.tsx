@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { homeServiceItems, homeServicesSectionContent } from '../model/services-content'
+import './home-services-section.css'
 
 export function HomeServicesSection() {
   return (

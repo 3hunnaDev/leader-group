@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { homeProjects, homeProjectsSectionContent } from '../model/projects-content'
+import './home-projects-section.css'
 
 export function HomeProjectsSection() {
   const [activeProjectIndex, setActiveProjectIndex] = useState(0)

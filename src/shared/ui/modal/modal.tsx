@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type MouseEvent, type ReactNode } from 'react'
 import { createPortal } from 'react-dom'
+import './modal.css'
 
 const FOCUSABLE_SELECTOR = [
   'a[href]',

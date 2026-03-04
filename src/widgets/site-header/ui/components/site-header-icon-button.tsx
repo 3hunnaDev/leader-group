@@ -1,3 +1,5 @@
+import './site-header-icon-button.css'
+
 type SiteHeaderIconButtonProps = {
   iconSrc: string
   ariaLabel: string

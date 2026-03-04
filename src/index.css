@@ -1,17 +1,3 @@
-@import './app/layouts/app-layout.css';
-@import './pages/home/ui/home-page.css';
-@import './pages/not-found/ui/not-found-page.css';
-@import './shared/ui/modal/modal.css';
-@import './widgets/site-header/ui/site-header.css';
-@import './widgets/site-header/ui/components/site-header-brand-pill.css';
-@import './widgets/site-header/ui/components/site-header-nav-pill.css';
-@import './widgets/site-header/ui/components/site-header-icon-button.css';
-@import './widgets/home/hero/ui/home-hero-section.css';
-@import './widgets/home/services/ui/home-services-section.css';
-@import './widgets/home/about/ui/home-about-section.css';
-@import './widgets/home/projects/ui/home-projects-section.css';
-@import './widgets/home/contact/ui/home-contact-section.css';
-
 @layer base {
   :root {
     --color-canvas: #efefef;

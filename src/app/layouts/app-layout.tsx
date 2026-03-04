@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom'
 import { SiteHeader } from '@widgets/site-header'
+import './app-layout.css'
 
 export function AppLayout() {
   return (

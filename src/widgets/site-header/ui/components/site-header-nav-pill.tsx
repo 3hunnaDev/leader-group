@@ -1,5 +1,6 @@
 import type { MouseEvent } from 'react'
 import { Link } from 'react-router-dom'
+import './site-header-nav-pill.css'
 
 type SiteHeaderNavPillProps = {
   text: string

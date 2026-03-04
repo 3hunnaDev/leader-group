@@ -5,6 +5,7 @@ import {
   homeContactSectionContent,
   homeContactSocialLinks,
 } from '../model/contact-content'
+import './home-contact-section.css'
 
 export function HomeContactSection() {
   return (

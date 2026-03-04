@@ -4,6 +4,7 @@ import { resolvePageTitle } from '../model/resolve-page-title'
 import { useActiveNavigationHref } from '../model/use-active-navigation-href'
 import { SiteHeaderDesktop } from './components/site-header-desktop'
 import { SiteHeaderMobile } from './components/site-header-mobile'
+import './site-header.css'
 
 function getLocationTarget() {
   return `${window.location.pathname}${window.location.hash}`

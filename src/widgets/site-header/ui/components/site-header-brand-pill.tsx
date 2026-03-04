@@ -1,6 +1,7 @@
 import type { MouseEvent } from 'react'
 import { Link } from 'react-router-dom'
 import brandIcon from '@assets/brand-icon.svg'
+import './site-header-brand-pill.css'
 
 type SiteHeaderBrandPillProps = {
   to: string

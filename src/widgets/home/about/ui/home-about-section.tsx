@@ -1,4 +1,5 @@
 import { homeAboutSectionContent, homeAdvantages } from '../model/about-content'
+import './home-about-section.css'
 
 export function HomeAboutSection() {
   return (
