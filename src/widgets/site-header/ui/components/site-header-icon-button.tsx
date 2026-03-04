@@ -1,7 +1,7 @@
 import './site-header-icon-button.css'
 
 type SiteHeaderIconButtonProps = {
-  iconSrc: string
+  isActive: boolean
   ariaLabel: string
   ariaExpanded?: boolean
   ariaControls?: string
@@ -10,7 +10,7 @@ type SiteHeaderIconButtonProps = {
 }
 
 export function SiteHeaderIconButton({
-  iconSrc,
+  isActive,
   ariaLabel,
   ariaExpanded,
   ariaControls,
@@ -28,7 +28,12 @@ export function SiteHeaderIconButton({
       aria-expanded={ariaExpanded}
       aria-controls={ariaControls}
     >
-      <img src={iconSrc} alt="" aria-hidden="true" className="site-header-icon-button__icon" />
+      <span className="burger" aria-hidden="true">
+        <input type="checkbox" checked={isActive} readOnly tabIndex={-1} />
+        <span />
+        <span />
+        <span />
+      </span>
     </button>
   )
 }

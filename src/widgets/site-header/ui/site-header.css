@@ -46,6 +46,10 @@
   box-shadow: 0 14px 28px -20px rgba(18, 19, 27, 0.48);
 }
 
+.site-header--on-dark .site-header-mobile__row--menu-open {
+  --header-brand-icon-filter: none;
+}
+
 .site-header-mobile__modal-overlay {
   --header-mobile-offset: 74px;
   --header-mobile-row-height: 70px;

@@ -1,5 +1,3 @@
-import closeIcon from '@assets/icons/Menu/Close_MD.svg'
-import hamburgerIcon from '@assets/icons/Menu/Hamburger_MD.svg'
 import type { NavigationItem } from '@shared/config/navigation'
 import { Modal } from '@shared/ui/modal'
 import { SiteHeaderBrandPill } from './site-header-brand-pill'
@@ -40,7 +38,7 @@ export function SiteHeaderMobile({
         <SiteHeaderBrandPill to="/" onNavigate={onCloseMenu} />
 
         <SiteHeaderIconButton
-          iconSrc={isMenuOpen ? closeIcon : hamburgerIcon}
+          isActive={isMenuOpen}
           ariaLabel={isMenuOpen ? 'Close navigation' : 'Open navigation'}
           ariaExpanded={isMenuOpen}
           ariaControls={mobileMenuContentId}
