@@ -2,6 +2,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
   text-decoration: none;
   cursor: pointer;
   -webkit-user-select: none;
@@ -19,11 +22,40 @@
   padding: clamp(0.68rem, 1.12vw, 0.9rem) clamp(0.96rem, 1.55vw, 1.34rem);
   transition:
     border-color 0.38s cubic-bezier(0.16, 1, 0.3, 1),
-    background-color 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+    background-color 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.site-header-brand-pill::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(
+    110deg,
+    rgba(255, 255, 255, 0) 25%,
+    rgba(255, 255, 255, 0.28) 50%,
+    rgba(255, 255, 255, 0) 75%
+  );
+  transform: translate3d(-140%, 0, 0) skewX(-18deg);
+  transition: transform 0.7s ease;
+}
+
+.site-header-brand-pill:hover::before {
+  transform: translate3d(140%, 0, 0) skewX(-18deg);
+}
+
+.site-header-brand-pill:hover {
+  transform: scale(1.045);
+  box-shadow: 0 18px 34px -20px rgba(33, 33, 38, 0.52);
 }
 
 .site-header-brand-pill__icon {
   display: block;
+  position: relative;
+  z-index: 1;
   inline-size: auto;
   block-size: clamp(24px, 3.2vw, 38px);
   pointer-events: none;
