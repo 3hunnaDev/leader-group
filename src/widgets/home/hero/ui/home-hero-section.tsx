@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
-import { Link } from 'react-router-dom'
 import homePrimeImage from '@assets/images/021.jpg'
+import { HashLink } from '@shared/ui/hash-link'
 import './home-hero-section.css'
 
 const WARRANTY_TICKER_ITEMS = [
@@ -122,10 +122,10 @@ export function HomeHeroSection() {
               Проектируем и внедряем лифты, эскалаторы и траволаторы под ваш объект: от подбора
               оборудования до монтажа и сервисного сопровождения.
             </p>
-            <Link to="/#contacts" className="home-hero__link">
+            <HashLink to="/#contacts" className="home-hero__link">
               <span className="home-hero__link-icon">↓</span>
               Узнать больше
-            </Link>
+            </HashLink>
           </div>
         </div>
       </section>

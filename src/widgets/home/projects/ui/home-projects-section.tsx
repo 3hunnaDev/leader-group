@@ -1,10 +1,10 @@
+import { projectCases, projectShowcaseSection } from '@entities/project'
 import { useState } from 'react'
-import { homeProjects, homeProjectsSectionContent } from '../model/projects-content'
 import './home-projects-section.css'
 
 export function HomeProjectsSection() {
   const [activeProjectIndex, setActiveProjectIndex] = useState(0)
-  const projectCount = homeProjects.length
+  const projectCount = projectCases.length
   const hasProjectSwitching = projectCount > 1
 
   const handlePreviousProject = () => {
@@ -30,7 +30,7 @@ export function HomeProjectsSection() {
   return (
     <section id="projects" className="home-projects">
       <div className="home-projects__head">
-        <span className="home-projects__label">{homeProjectsSectionContent.label}</span>
+        <span className="home-projects__label">{projectShowcaseSection.sectionLabel}</span>
         <div className="home-projects__arrows">
           <button
             type="button"
@@ -54,15 +54,15 @@ export function HomeProjectsSection() {
       </div>
 
       <h2 className="home-projects__title">
-        {homeProjectsSectionContent.title}
-        <span className="home-projects__title-soft">{homeProjectsSectionContent.titleSoft}</span>
+        {projectShowcaseSection.title}
+        <span className="home-projects__title-soft">{projectShowcaseSection.titleSoft}</span>
       </h2>
       <p className="home-projects__status" aria-live="polite">
         {activeProjectIndex + 1} / {projectCount}
       </p>
 
       <div className="home-projects__grid">
-        {homeProjects.map((project, index) => (
+        {projectCases.map((project, index) => (
           <article
             key={project.title}
             className={`home-projects__card ${

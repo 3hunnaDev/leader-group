@@ -1,19 +1,19 @@
-import { homeAboutSectionContent, homeAdvantages } from '../model/about-content'
+import { companyAdvantages, companyOverview } from '@entities/company'
 import './home-about-section.css'
 
 export function HomeAboutSection() {
   return (
     <section id="about" className="home-about">
-      <span className="home-about__label">{homeAboutSectionContent.label}</span>
+      <span className="home-about__label">{companyOverview.sectionLabel}</span>
       <h2 className="home-about__title">
-        {homeAboutSectionContent.title}
-        <span className="home-about__title-soft">{homeAboutSectionContent.titleSoft}</span>
+        {companyOverview.title}
+        <span className="home-about__title-soft">{companyOverview.titleSoft}</span>
       </h2>
 
-      <p className="home-about__description">{homeAboutSectionContent.description}</p>
+      <p className="home-about__description">{companyOverview.description}</p>
 
       <div className="home-about__grid">
-        {homeAdvantages.map((item, index) => (
+        {companyAdvantages.map((item, index) => (
           <article
             key={item.title}
             className={`home-about__card ${index === 0 ? 'home-about__card--primary' : ''}`}

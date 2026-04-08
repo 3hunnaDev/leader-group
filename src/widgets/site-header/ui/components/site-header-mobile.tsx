@@ -1,3 +1,4 @@
+import type { Ref } from 'react'
 import type { NavigationItem } from '@shared/config/navigation'
 import { Modal } from '@shared/ui/modal'
 import { SiteHeaderBrandPill } from './site-header-brand-pill'
@@ -7,29 +8,24 @@ import { SiteHeaderNavPill } from './site-header-nav-pill'
 type SiteHeaderMobileProps = {
   navigationItems: NavigationItem[]
   activeHref: string | null
-  onNavigate: (href: string) => void
   isMenuOpen: boolean
   onToggleMenu: () => void
   onCloseMenu: () => void
+  rootRef?: Ref<HTMLDivElement>
 }
 
 export function SiteHeaderMobile({
   navigationItems,
   activeHref,
-  onNavigate,
   isMenuOpen,
   onToggleMenu,
   onCloseMenu,
+  rootRef,
 }: SiteHeaderMobileProps) {
   const mobileMenuContentId = 'site-header-mobile-menu'
 
-  const handleItemNavigate = (href: string) => {
-    onNavigate(href)
-    onCloseMenu()
-  }
-
   return (
-    <div className="site-header-mobile">
+    <div ref={rootRef} className="site-header-mobile">
       <div
         className={`site-header-mobile__row ${
           isMenuOpen ? 'site-header-mobile__row--menu-open' : ''
@@ -62,7 +58,7 @@ export function SiteHeaderMobile({
                 key={item.href}
                 text={item.label}
                 href={item.href}
-                onNavigate={handleItemNavigate}
+                onNavigate={onCloseMenu}
                 isCurrent={activeHref === item.href}
                 className={`site-header-nav-pill--mobile site-header-nav-pill--nav ${
                   activeHref === item.href ? 'site-header-nav-pill--active' : ''
@@ -77,7 +73,7 @@ export function SiteHeaderMobile({
         <SiteHeaderNavPill
           text="Оставить заявку"
           href="/#contacts"
-          onNavigate={handleItemNavigate}
+          onNavigate={onCloseMenu}
           className="site-header-nav-pill--cta site-header-mobile__fixed-cta"
         />
       </div>

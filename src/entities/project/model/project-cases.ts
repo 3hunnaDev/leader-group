@@ -1,16 +1,16 @@
-export type ProjectItem = {
+export type ProjectCase = {
   location: string
   title: string
   type: string
 }
 
-export const homeProjectsSectionContent = {
-  label: 'Наши проекты',
+export const projectShowcaseSection = {
+  sectionLabel: 'Наши проекты',
   title: 'Лифт — символ прогресса,',
   titleSoft: ' который поднимает вверх.',
 }
 
-export const homeProjects: ProjectItem[] = [
+export const projectCases: ProjectCase[] = [
   {
     location: 'Московская область',
     title: 'Riverhouse',

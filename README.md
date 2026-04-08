@@ -18,6 +18,9 @@ npm run dev
 - `npm run format` — автоформатирование Prettier
 - `npm run format:check` — проверка форматирования без изменений
 - `npm run preview` — локальный preview собранного билда
+- `npm run test` — запуск Vitest в watch-режиме
+- `npm run test:run` — однократный прогон тестов
+- `npm run test:coverage` — прогон тестов с coverage-отчётом
 
 ## Архитектура
 

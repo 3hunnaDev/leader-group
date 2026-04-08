@@ -1,35 +1,41 @@
 import { useEffect, useRef, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import { navigationItems } from '@shared/config/navigation'
+import { getLocationTarget } from '@shared/lib/hash-navigation'
 import { resolvePageTitle } from '../model/resolve-page-title'
 import { useActiveNavigationHref } from '../model/use-active-navigation-href'
 import { SiteHeaderDesktop } from './components/site-header-desktop'
 import { SiteHeaderMobile } from './components/site-header-mobile'
 import './site-header.css'
 
-function getLocationTarget() {
-  return `${window.location.pathname}${window.location.hash}`
-}
-
 export function SiteHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const { activeHref, setActiveHref } = useActiveNavigationHref(navigationItems)
+  const location = useLocation()
+  const activeHref = useActiveNavigationHref(navigationItems)
   const headerRef = useRef<HTMLElement>(null)
+  const mobileRootRef = useRef<HTMLDivElement>(null)
+  const locationTarget = getLocationTarget(location.pathname, location.hash)
 
   useEffect(() => {
-    const desktopQuery = window.matchMedia('(min-width: 1024px)')
+    const syncMenuWithRenderedLayout = () => {
+      const mobileRootElement = mobileRootRef.current
 
-    const handleDesktopMode = (event: MediaQueryListEvent) => {
-      if (event.matches) {
+      if (!mobileRootElement || !isMenuOpen) {
+        return
+      }
+
+      if (window.getComputedStyle(mobileRootElement).display === 'none') {
         setIsMenuOpen(false)
       }
     }
 
-    desktopQuery.addEventListener('change', handleDesktopMode)
+    syncMenuWithRenderedLayout()
+    window.addEventListener('resize', syncMenuWithRenderedLayout)
 
     return () => {
-      desktopQuery.removeEventListener('change', handleDesktopMode)
+      window.removeEventListener('resize', syncMenuWithRenderedLayout)
     }
-  }, [])
+  }, [isMenuOpen])
 
   useEffect(() => {
     const headerElement = headerRef.current
@@ -79,8 +85,6 @@ export function SiteHeader() {
     })
     window.addEventListener('resize', handleViewportOrContentChange)
     window.addEventListener('load', handleViewportOrContentChange)
-    window.addEventListener('hashchange', handleViewportOrContentChange)
-    window.addEventListener('popstate', handleViewportOrContentChange)
 
     return () => {
       if (frameId) {
@@ -90,41 +94,24 @@ export function SiteHeader() {
       window.removeEventListener('scroll', scheduleHeaderToneUpdate)
       window.removeEventListener('resize', handleViewportOrContentChange)
       window.removeEventListener('load', handleViewportOrContentChange)
-      window.removeEventListener('hashchange', handleViewportOrContentChange)
-      window.removeEventListener('popstate', handleViewportOrContentChange)
     }
-  }, [])
+  }, [location.hash, location.pathname])
 
   useEffect(() => {
-    const updatePageTitle = () => {
-      document.title = resolvePageTitle(navigationItems, getLocationTarget())
-    }
-
-    updatePageTitle()
-    window.addEventListener('hashchange', updatePageTitle)
-    window.addEventListener('popstate', updatePageTitle)
-
-    return () => {
-      window.removeEventListener('hashchange', updatePageTitle)
-      window.removeEventListener('popstate', updatePageTitle)
-    }
-  }, [])
+    document.title = resolvePageTitle(navigationItems, locationTarget)
+  }, [locationTarget])
 
   return (
     <header ref={headerRef} className="site-header">
       <SiteHeaderMobile
+        rootRef={mobileRootRef}
         navigationItems={navigationItems}
         activeHref={activeHref}
-        onNavigate={setActiveHref}
         isMenuOpen={isMenuOpen}
         onToggleMenu={() => setIsMenuOpen((state) => !state)}
         onCloseMenu={() => setIsMenuOpen(false)}
       />
-      <SiteHeaderDesktop
-        navigationItems={navigationItems}
-        activeHref={activeHref}
-        onNavigate={setActiveHref}
-      />
+      <SiteHeaderDesktop navigationItems={navigationItems} activeHref={activeHref} />
     </header>
   )
 }

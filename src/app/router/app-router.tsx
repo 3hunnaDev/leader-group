@@ -1,9 +1,10 @@
+import type { RouteObject } from 'react-router-dom'
 import { createBrowserRouter } from 'react-router-dom'
 import { HomePage } from '@pages/home'
 import { NotFoundPage } from '@pages/not-found'
 import { AppLayout } from '../layouts/app-layout'
 
-export const appRouter = createBrowserRouter([
+export const appRoutes: RouteObject[] = [
   {
     path: '/',
     element: <AppLayout />,
@@ -18,4 +19,6 @@ export const appRouter = createBrowserRouter([
       },
     ],
   },
-])
+]
+
+export const appRouter = createBrowserRouter(appRoutes)

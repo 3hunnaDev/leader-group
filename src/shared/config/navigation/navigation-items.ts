@@ -10,3 +10,5 @@ export const navigationItems: NavigationItem[] = [
   { href: '/#projects', label: 'Наши проекты' },
   { href: '/#contacts', label: 'Контакты' },
 ]
+
+export const contactNavigationItems = navigationItems.filter((item) => item.href !== '/#contacts')

@@ -1,17 +1,17 @@
-export type AdvantageItem = {
+export type CompanyAdvantage = {
   description: string
   title: string
 }
 
-export const homeAboutSectionContent = {
+export const companyOverview = {
   description:
     'Наша миссия заключается в обеспечении общества качественным и безопасным оборудованием в дополнении с уникальным дизайном. Мы хотим делать общество и мир вокруг нас лучше.',
-  label: 'О нас',
+  sectionLabel: 'О нас',
   title: 'Не просто лифты,',
   titleSoft: ' а отношения.',
 }
 
-export const homeAdvantages: AdvantageItem[] = [
+export const companyAdvantages: CompanyAdvantage[] = [
   {
     description:
       'Более 20 лет на рынке лифтового оборудования. Предлагаем решения с высоким уровнем безопасности и качества.',

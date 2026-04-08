@@ -1,17 +1,17 @@
-export type ServiceItem = {
+export type ServiceOffering = {
   description: string
   title: string
 }
 
-export const homeServicesSectionContent = {
+export const serviceCatalogSection = {
   catalogLinkText: 'Смотреть весь каталог',
   catalogMeta: 'Каталог',
   catalogTitle: 'Лифт — это маленькая вселенная, где время останавливается, а люди встречаются.',
-  label: 'Ассортимент и услуги',
+  sectionLabel: 'Ассортимент и услуги',
   title: 'Подъёмное оборудование',
 }
 
-export const homeServiceItems: ServiceItem[] = [
+export const serviceOfferings: ServiceOffering[] = [
   {
     description:
       'Комплексные решения для офисных и многофункциональных объектов с высокой нагрузкой.',

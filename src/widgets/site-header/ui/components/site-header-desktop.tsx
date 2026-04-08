@@ -6,14 +6,9 @@ import { SiteHeaderNavPill } from './site-header-nav-pill'
 type SiteHeaderDesktopProps = {
   navigationItems: NavigationItem[]
   activeHref: string | null
-  onNavigate: (href: string) => void
 }
 
-export function SiteHeaderDesktop({
-  navigationItems,
-  activeHref,
-  onNavigate,
-}: SiteHeaderDesktopProps) {
+export function SiteHeaderDesktop({ navigationItems, activeHref }: SiteHeaderDesktopProps) {
   const [hoveredHref, setHoveredHref] = useState<string | null>(null)
 
   return (
@@ -35,7 +30,6 @@ export function SiteHeaderDesktop({
                     key={item.href}
                     text={item.label}
                     href={item.href}
-                    onNavigate={onNavigate}
                     onMouseEnter={() => setHoveredHref(item.href)}
                     isCurrent={isActive}
                     className={`site-header-nav-pill--nav ${activeClass}`}

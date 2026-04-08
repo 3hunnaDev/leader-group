@@ -1,4 +1,9 @@
-export const homeContactSectionContent = {
+export type CompanySocialLink = {
+  href: string
+  label: string
+}
+
+export const companyContactSection = {
   bottomText: 'Использование материалов сайта без официального разрешения запрещено.',
   bottomTitle: '© Leader Group',
   columnContactsTitle: 'Контакты',
@@ -12,16 +17,13 @@ export const homeContactSectionContent = {
   title: 'Напишите нам',
 }
 
-export const homeContactMenuItems = [
-  { href: '/#home', label: 'Главная' },
-  { href: '/#assortment', label: 'Ассортимент и услуги' },
-  { href: '/#about', label: 'О нас' },
-  { href: '/#projects', label: 'Наши проекты' },
+export const companyPhoneNumbers = [
+  '+7 (925) 383-80-13',
+  '+7 (926) 959-65-75',
+  '+7 (925) 456-91-99',
 ]
 
-export const homeContactPhones = ['+7 (925) 383-80-13', '+7 (926) 959-65-75', '+7 (925) 456-91-99']
-
-export const homeContactSocialLinks = [
+export const companySocialLinks: CompanySocialLink[] = [
   {
     href: 'https://wa.me/79801591029',
     label: 'WhatsApp',
