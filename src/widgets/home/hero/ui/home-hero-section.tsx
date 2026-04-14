@@ -49,9 +49,6 @@ export function HomeHeroSection() {
         <div className="home-hero__side">
           <p className="home-section__copy home-hero__copy">{t('hero.description')}</p>
           <div className="home-hero__actions">
-            <HashLink to="/#contact" className="home-button home-button--dark">
-              {t('common.ctaRequestProposal')}
-            </HashLink>
             <HashLink to="/#solutions" className="home-button home-button--ghost">
               {t('common.ctaExploreSolutions')}
             </HashLink>

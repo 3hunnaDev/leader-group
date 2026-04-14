@@ -62,11 +62,13 @@
 - Header lock для smooth hash-navigation теперь снимается при ручном user-scroll override и по safety-timeout, поэтому после клика по menu пункт больше не «залипает» активным, если пользователь сам уводит страницу в другое место.
 - Active-nav на верхнем крае страницы теперь корректно считает `Home` активным даже если probe ещё не дошёл до top первой секции, поэтому старый hash больше не может оставлять подсвеченным последний кликнутый пункт при ручном возврате наверх.
 - Scroll-layer дополнительно очищен от legacy restore-key fallback и лишней ветки `anchor`-restore без hash, чтобы текущая логика навигации и reload-restore оставалась короче и без неиспользуемых переходных хвостов.
+- Начальная синхронизация active-nav переведена в layout-phase без `requestAnimationFrame` на mount, поэтому при reload на верхней границе страницы stale hash больше не успевает мигнуть в header до фактического `Home`-состояния.
 - `.codex-artifacts/` добавлен в `.gitignore`, а визуальные служебные скриншоты выведены из git-индекса, чтобы локальные артефакты Codex больше не попадали в репозиторий.
 - Для деплоя на GitHub Pages добавлены production `base`/`basename` под `/leader-group/`, workflow публикации через GitHub Actions и обновлённый README с live-ссылкой на Pages.
 - Из production `index.html` удалён служебный Figma capture-script, чтобы deploy на GitHub Pages не тянул лишний внешний код.
 - На desktop русский `home-hero__title` больше не сжимается отдельным override и теперь держит тот же визуальный масштаб, что и остальные крупные section-title страницы.
 - Для русской mobile-версии `home-hero__title` убрано занижение base-scale: на узких экранах заголовок теперь масштабируется так же крупно, как и в английской версии, а отдельное сжатие сохраняется только на более широких breakpoint-ах.
+- Из hero action-group удалена тёмная CTA-кнопка `Request a proposal`: в блоке оставлена только secondary-кнопка перехода к секции `Solutions`.
 
 ## 2026-04-08
 

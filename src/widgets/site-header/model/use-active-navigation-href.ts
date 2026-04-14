@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useLayoutEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import type { NavigationItem } from '@shared/config/navigation'
 import {
@@ -113,7 +113,7 @@ export function useActiveNavigationHref(items: NavigationItem[]) {
   const fallbackHref = resolveActiveNavigationHref(items, locationTarget)
   const [scrollActiveHref, setScrollActiveHref] = useState<NavigationItem['href'] | null>(null)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (typeof window === 'undefined' || location.pathname !== '/') {
       return
     }
@@ -146,7 +146,7 @@ export function useActiveNavigationHref(items: NavigationItem[]) {
       frameId = window.requestAnimationFrame(updateActiveHref)
     }
 
-    scheduleActiveHrefUpdate()
+    updateActiveHref()
 
     window.addEventListener('pagehide', persistCurrentSnapshot)
 

@@ -1,6 +1,6 @@
 import { act, render, screen, waitFor } from '@testing-library/react'
 import { RouterProvider, createMemoryRouter } from 'react-router-dom'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import { navigationItems } from '@shared/config/navigation'
 import {
   resolveActiveNavigationHref,
@@ -182,5 +182,61 @@ describe('useActiveNavigationHref', () => {
     await waitFor(() => {
       expect(screen.getByTestId('active-href')).toHaveTextContent('/#solutions')
     })
+  })
+
+  it('resolves Home before the first paint when the url hash is stale but the page is already at the top', () => {
+    const originalGetBoundingClientRect = HTMLElement.prototype.getBoundingClientRect
+    const rectSpy = vi
+      .spyOn(HTMLElement.prototype, 'getBoundingClientRect')
+      .mockImplementation(function mockBoundingClientRect(this: HTMLElement) {
+        if (this.classList.contains('site-header')) {
+          return createRect({ top: 0, bottom: 84, right: 240 })
+        }
+
+        switch (this.id) {
+          case 'home':
+            return createRect({ top: 0, bottom: 420, right: 360 })
+          case 'solutions':
+            return createRect({ top: 520, bottom: 960, right: 360 })
+          case 'why-us':
+            return createRect({ top: 1080, bottom: 1520, right: 360 })
+          case 'projects':
+            return createRect({ top: 1640, bottom: 2080, right: 360 })
+          case 'contact':
+            return createRect({ top: 2200, bottom: 2640, right: 360 })
+          default:
+            return originalGetBoundingClientRect.call(this)
+        }
+      })
+
+    const router = createMemoryRouter(
+      [
+        {
+          path: '*',
+          element: (
+            <>
+              <header className="site-header" />
+              <ActiveHrefProbe />
+              <section id="home" />
+              <section id="solutions" />
+              <section id="why-us" />
+              <section id="projects" />
+              <footer id="contact" />
+            </>
+          ),
+        },
+      ],
+      {
+        initialEntries: ['/#projects'],
+      },
+    )
+
+    try {
+      render(<RouterProvider router={router} />)
+
+      expect(screen.getByTestId('active-href')).toHaveTextContent('/#home')
+    } finally {
+      rectSpy.mockRestore()
+    }
   })
 })

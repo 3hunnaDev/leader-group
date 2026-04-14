@@ -19,10 +19,6 @@ describe('HomeHeroSection', () => {
     expect(
       screen.getByText(/we design, supply, install, and service lifts, escalators/i),
     ).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: 'Request a proposal' })).toHaveAttribute(
-      'href',
-      '/#contact',
-    )
     expect(screen.getByRole('link', { name: 'Explore solutions' })).toHaveAttribute(
       'href',
       '/#solutions',
