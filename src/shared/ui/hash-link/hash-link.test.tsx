@@ -20,5 +20,13 @@ describe('HashLink', () => {
     await user.click(screen.getByRole('link', { name: 'Contact' }))
 
     expect(scrollToSpy).toHaveBeenCalled()
+    expect(sessionStorage.getItem('leader-group:scroll-restore-state')).toBe(
+      JSON.stringify({
+        href: '/#contact',
+        mode: 'anchor',
+        pathname: '/',
+        top: 0,
+      }),
+    )
   })
 })

@@ -9,7 +9,11 @@ import { SiteHeaderDesktop } from './components/site-header-desktop'
 import { SiteHeaderMobile } from './components/site-header-mobile'
 import './site-header.css'
 
-export function SiteHeader() {
+type SiteHeaderProps = {
+  lockedActiveHref?: string | null
+}
+
+export function SiteHeader({ lockedActiveHref = null }: SiteHeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const { i18n, t } = useTranslation()
   const location = useLocation()
@@ -17,6 +21,7 @@ export function SiteHeader() {
   const headerRef = useRef<HTMLElement>(null)
   const mobileRootRef = useRef<HTMLDivElement>(null)
   const locationTarget = getLocationTarget(location.pathname, location.hash)
+  const effectiveActiveHref = lockedActiveHref ?? activeHref
 
   useEffect(() => {
     const syncMenuWithRenderedLayout = () => {
@@ -108,12 +113,12 @@ export function SiteHeader() {
       <SiteHeaderMobile
         rootRef={mobileRootRef}
         navigationItems={navigationItems}
-        activeHref={activeHref}
+        activeHref={effectiveActiveHref}
         isMenuOpen={isMenuOpen}
         onToggleMenu={() => setIsMenuOpen((state) => !state)}
         onCloseMenu={() => setIsMenuOpen(false)}
       />
-      <SiteHeaderDesktop navigationItems={navigationItems} activeHref={activeHref} />
+      <SiteHeaderDesktop navigationItems={navigationItems} activeHref={effectiveActiveHref} />
     </header>
   )
 }

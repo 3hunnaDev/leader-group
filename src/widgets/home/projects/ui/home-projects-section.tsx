@@ -86,6 +86,22 @@ export function HomeProjectsSection() {
           </span>
           <h3 className="home-projects__card-title">{featuredProject.title}</h3>
           <p className="home-projects__card-copy">{featuredProject.description}</p>
+          <div className="home-projects__card-supporting">
+            <p className="home-projects__card-copy home-projects__card-copy--supporting">
+              {featuredProject.featuredNarrative}
+            </p>
+            <p className="home-projects__card-copy home-projects__card-copy--supporting">
+              {featuredProject.featuredContext}
+            </p>
+            <div className="home-projects__card-details">
+              {featuredProject.featuredDetails.map((detail) => (
+                <div key={detail.label} className="home-projects__card-detail">
+                  <p className="home-projects__card-detail-label">{detail.label}</p>
+                  <p className="home-projects__card-detail-copy">{detail.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </article>
 
         <div className="home-projects__stack">

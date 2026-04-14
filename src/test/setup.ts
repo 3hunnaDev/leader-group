@@ -79,6 +79,7 @@ afterEach(() => {
   document.title = ''
   document.documentElement.lang = 'en'
   localStorage.removeItem(LANGUAGE_STORAGE_KEY)
+  sessionStorage.clear()
   window.history.pushState({}, '', '/')
   void i18n.changeLanguage('en')
   vi.clearAllMocks()

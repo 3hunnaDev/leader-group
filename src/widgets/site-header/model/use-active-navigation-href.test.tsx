@@ -61,6 +61,18 @@ describe('resolveActiveNavigationHref', () => {
 })
 
 describe('resolveActiveNavigationHrefBySectionBounds', () => {
+  it('keeps the first section active when the viewport is above its top edge', () => {
+    expect(
+      resolveActiveNavigationHrefBySectionBounds(
+        [
+          { href: '/#home', top: 124, bottom: 520 },
+          { href: '/#solutions', top: 640, bottom: 1080 },
+        ],
+        108,
+      ),
+    ).toBe('/#home')
+  })
+
   it('returns the section that currently overlaps the header probe', () => {
     expect(
       resolveActiveNavigationHrefBySectionBounds(

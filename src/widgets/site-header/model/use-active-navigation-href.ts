@@ -1,7 +1,12 @@
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import type { NavigationItem } from '@shared/config/navigation'
-import { getLocationTarget } from '@shared/lib/hash-navigation'
+import {
+  getLocationTarget,
+  normalizeHash,
+  persistScrollRestoreState,
+  resolveHashTargetTop,
+} from '@shared/lib/hash-navigation'
 
 const HOME_HREF = '/#home'
 const HEADER_SELECTOR = '.site-header'
@@ -34,6 +39,14 @@ export function resolveActiveNavigationHrefBySectionBounds(
   bounds: NavigationSectionBounds[],
   probeY: number,
 ) {
+  if (bounds.length === 0) {
+    return null
+  }
+
+  if (probeY < bounds[0].top) {
+    return bounds[0].href
+  }
+
   let nearestHref: NavigationItem['href'] | null = null
 
   for (const section of bounds) {
@@ -107,8 +120,22 @@ export function useActiveNavigationHref(items: NavigationItem[]) {
 
     let frameId = 0
 
+    const persistCurrentSnapshot = () => {
+      const resolvedActiveHref = resolveActiveNavigationHrefByScroll(items)
+
+      persistScrollRestoreState({
+        href: resolvedActiveHref,
+        mode: 'scroll',
+        pathname: location.pathname,
+        top: window.scrollY,
+      })
+
+      return resolvedActiveHref
+    }
+
     const updateActiveHref = () => {
-      setScrollActiveHref(resolveActiveNavigationHrefByScroll(items))
+      const resolvedActiveHref = persistCurrentSnapshot()
+      setScrollActiveHref(resolvedActiveHref)
     }
 
     const scheduleActiveHrefUpdate = () => {
@@ -121,6 +148,8 @@ export function useActiveNavigationHref(items: NavigationItem[]) {
 
     scheduleActiveHrefUpdate()
 
+    window.addEventListener('pagehide', persistCurrentSnapshot)
+
     window.addEventListener('scroll', scheduleActiveHrefUpdate, {
       passive: true,
     })
@@ -132,15 +161,33 @@ export function useActiveNavigationHref(items: NavigationItem[]) {
         cancelAnimationFrame(frameId)
       }
 
+      window.removeEventListener('pagehide', persistCurrentSnapshot)
       window.removeEventListener('scroll', scheduleActiveHrefUpdate)
       window.removeEventListener('resize', scheduleActiveHrefUpdate)
       window.removeEventListener('load', scheduleActiveHrefUpdate)
     }
   }, [items, location.pathname])
 
-  if (location.pathname !== '/') {
-    return fallbackHref
-  }
+  const activeHref = location.pathname === '/' ? (scrollActiveHref ?? fallbackHref) : fallbackHref
 
-  return scrollActiveHref ?? fallbackHref
+  useEffect(() => {
+    if (location.pathname !== '/') {
+      return
+    }
+
+    if (location.hash === '' || location.hash === '#') {
+      return
+    }
+
+    const normalizedHash = normalizeHash(location.pathname, location.hash)
+
+    persistScrollRestoreState({
+      href: getLocationTarget(location.pathname, normalizedHash),
+      mode: 'anchor',
+      pathname: location.pathname,
+      top: resolveHashTargetTop(normalizedHash),
+    })
+  }, [location.hash, location.pathname])
+
+  return activeHref
 }

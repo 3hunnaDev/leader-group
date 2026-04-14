@@ -5,6 +5,7 @@
 }
 
 .home-services__card {
+  min-height: 22.5rem;
   border: 1px solid var(--color-border-soft);
   border-radius: 1.75rem;
   background: var(--color-surface);
@@ -40,6 +41,7 @@
   }
 
   .home-services__card {
+    min-height: 24.5rem;
     padding: 1.125rem;
   }
 

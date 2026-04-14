@@ -1,5 +1,6 @@
 .home-page {
   --home-eyebrow-content-offset: clamp(0.35rem, 0.7vw, 0.6rem);
+  --home-card-content-edge-clearance: clamp(0.75rem, 1vw, 1rem);
   width: min(100%, 1440px);
   margin: 0 auto;
   display: flex;
@@ -55,6 +56,21 @@
 
 .home-section__eyebrow ~ :is(.home-section__title, .home-hero__title) {
   margin-inline-start: var(--home-eyebrow-content-offset);
+}
+
+.home-card-tag
+  ~ :is(
+    .home-services__card-title,
+    .home-services__card-copy,
+    .home-approach__card-title,
+    .home-approach__card-copy,
+    .home-projects__card-title,
+    .home-projects__card-copy
+  ) {
+  margin-inline-start: var(--home-eyebrow-content-offset);
+  max-width: calc(
+    100% - var(--home-eyebrow-content-offset) - var(--home-card-content-edge-clearance)
+  );
 }
 
 .home-section__copy {

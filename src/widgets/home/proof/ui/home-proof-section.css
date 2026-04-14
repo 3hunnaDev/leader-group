@@ -5,10 +5,10 @@
 }
 
 .home-proof__card {
-  min-height: 15rem;
+  min-height: 14rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 0.875rem;
   border: 1px solid var(--color-border-soft);
   border-radius: 1.75rem;
   background: var(--color-surface);
@@ -48,7 +48,7 @@ html[lang='ru'] .home-proof__card-title {
 }
 
 .home-proof__card-copy {
-  margin: 1rem 0 0;
+  margin: 0;
   color: var(--color-text-muted);
   font-size: 0.9375rem;
   line-height: 1.5;
@@ -73,9 +73,5 @@ html[lang='ru'] .home-proof__card-title {
   .home-proof__grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 1.125rem;
-  }
-
-  .home-proof__card {
-    min-height: 18.75rem;
   }
 }

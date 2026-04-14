@@ -1,8 +1,11 @@
 import type { ComponentProps } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import {
+  getLocationTarget,
   normalizeHash,
+  persistScrollRestoreState,
   resolveHashLinkTarget,
+  resolveHashTargetTop,
   scrollToHashTarget,
 } from '@shared/lib/hash-navigation'
 
@@ -26,6 +29,19 @@ export function HashLink({ to, onClick, onNavigate, ...props }: HashLinkProps) {
     const currentHash = normalizeHash(location.pathname, location.hash)
     const isSameTarget =
       location.pathname === targetLocation.pathname && currentHash === targetLocation.hash
+    const isHomeTarget = targetLocation.pathname === '/'
+
+    if (isHomeTarget) {
+      persistScrollRestoreState({
+        href: getLocationTarget(targetLocation.pathname, targetLocation.hash),
+        mode: 'anchor',
+        pathname: targetLocation.pathname,
+        top:
+          location.pathname === targetLocation.pathname
+            ? resolveHashTargetTop(targetLocation.hash)
+            : null,
+      })
+    }
 
     if (!isSameTarget) {
       return

@@ -3,7 +3,7 @@ export const resources = {
     translation: {
       approach: {
         description:
-          'Instead of testimonials, the page explains the principles clients actually work with throughout specification, delivery, and service.',
+          'From first brief to long-term service, we build every project around clear decisions, transparent coordination, and accountability that stays with the building.',
         items: {
           continuity: {
             description:
@@ -108,16 +108,58 @@ export const resources = {
           previous: 'Show previous project',
         },
         description:
-          'A curated selection of installations based on the current Leader Group project set, reframed as an editorial portfolio.',
+          'Selected installations that show how Leader Group turns technical complexity into confident movement, architectural fit, and dependable daily performance.',
         items: {
           agrokhim: {
             description: 'Industrial installation balancing durability and serviceability.',
+            featuredContext:
+              'The project direction is defined by robust day-to-day operation, maintainable access for service teams, and equipment chosen for a demanding production environment.',
+            featuredDetails: {
+              durability: {
+                description:
+                  'Component choices and system logic are aligned with a working environment where resilience under frequent use matters as much as serviceability.',
+                label: 'Durability',
+              },
+              routine: {
+                description:
+                  'Daily transport needs to remain predictable within a practical production rhythm, without turning maintenance or operation into a recurring bottleneck.',
+                label: 'Operational routine',
+              },
+              service: {
+                description:
+                  'Service access is treated as part of the design brief, so inspection and post-installation support stay realistic over the full lifecycle.',
+                label: 'Service access',
+              },
+            },
+            featuredNarrative:
+              'The industrial brief centers on durability, service access, and a transport solution prepared for demanding daily routines.',
             location: 'Kostroma',
             title: 'Agrokhim',
             type: 'Industrial',
           },
           astrum: {
             description: 'Lift solution tailored to a multi-unit residential context.',
+            featuredContext:
+              'That means aligning the system with residential traffic patterns, quiet operation expectations, and a maintenance strategy suited to long-term everyday use.',
+            featuredDetails: {
+              comfort: {
+                description:
+                  'The everyday residential experience depends on quiet, predictable movement and a cabin environment that feels calm rather than over-engineered.',
+                label: 'Living comfort',
+              },
+              focus: {
+                description:
+                  'The project calls for a solution that supports regular household traffic without making vertical transport feel visually or operationally heavy.',
+                label: 'Project focus',
+              },
+              maintenance: {
+                description:
+                  'Long-term upkeep is part of the value equation, so the system is framed around service continuity as much as initial specification.',
+                label: 'Maintenance horizon',
+              },
+            },
+            featuredNarrative:
+              'For this residential scheme, the priority is a calm everyday passenger experience, compact system logic, and long-term comfort in use.',
             location: 'Kazan',
             title: 'Astrum',
             type: 'Residential',
@@ -125,12 +167,54 @@ export const resources = {
           riverhouse: {
             description:
               'Featured installation focused on smooth circulation, premium architectural fit, and confident day-to-day operation.',
+            featuredContext:
+              'The engineering response supports the project’s spatial character while keeping passenger flow legible, comfortable, and dependable through everyday commercial use.',
+            featuredDetails: {
+              architecture: {
+                description:
+                  'The equipment needs to read as part of the architectural language, reinforcing the project’s premium atmosphere instead of competing with it.',
+                label: 'Architectural role',
+              },
+              focus: {
+                description:
+                  'This scheme asks for a vertical mobility solution that feels representative, smooth in circulation, and natural inside a commercial front-of-house environment.',
+                label: 'Project focus',
+              },
+              operations: {
+                description:
+                  'Operationally, the system has to keep passenger movement easy to understand and comfortable across the full daily rhythm of the building.',
+                label: 'Daily operation',
+              },
+            },
+            featuredNarrative:
+              'The system was shaped for a representative commercial setting where vertical movement needs to feel smooth, intentional, and fully integrated into the architecture.',
             location: 'Moscow Region',
             title: 'Riverhouse',
             type: 'Commercial',
           },
           schoolBogorodsky: {
             description: 'Vertical mobility specified for a public educational building.',
+            featuredContext:
+              'The resulting transport logic needs to remain clear for students, staff, and visitors while supporting a reliable routine throughout the school day.',
+            featuredDetails: {
+              clarity: {
+                description:
+                  'Because the building serves different groups throughout the day, wayfinding and vertical circulation need to stay legible for every user scenario.',
+                label: 'Public clarity',
+              },
+              flow: {
+                description:
+                  'School traffic forms its own daily rhythm, so the mobility strategy has to support predictable peaks, transitions, and continuous use.',
+                label: 'Daily flow',
+              },
+              safety: {
+                description:
+                  'The specification is shaped around secure everyday operation, durable equipment behavior, and confidence in repeated public use.',
+                label: 'Safety logic',
+              },
+            },
+            featuredNarrative:
+              'In an educational building, the focus shifts to intuitive movement, safe everyday use, and reliable performance throughout the school-day rhythm.',
             location: 'Tyumen',
             title: 'School, Bogorodsky',
             type: 'Education',
@@ -212,7 +296,7 @@ export const resources = {
     translation: {
       approach: {
         description:
-          'Вместо вымышленных отзывов страница объясняет принципы, с которыми клиенты действительно работают на этапах подбора, поставки и сервиса.',
+          'От первого брифа до долгосрочного сервиса мы выстраиваем проект вокруг ясных решений, прозрачной координации и ответственности, которая остаётся с объектом.',
         items: {
           continuity: {
             description:
@@ -318,17 +402,59 @@ export const resources = {
           previous: 'Показать предыдущий проект',
         },
         description:
-          'Подборка реализованных объектов на основе текущих кейсов Leader Group, переосмысленная как editorial-портфолио.',
+          'Реализованные объекты, которые показывают, как Leader Group превращает техническую сложность в уверенное движение, точную архитектурную интеграцию и надёжную ежедневную работу.',
         items: {
           agrokhim: {
             description:
               'Промышленный проект, в котором сбалансированы долговечность и удобство обслуживания.',
+            featuredContext:
+              'Направление проекта определяется устойчивой ежедневной эксплуатацией, удобством сервисного доступа для технических команд и оборудованием, рассчитанным на требовательную производственную среду.',
+            featuredDetails: {
+              durability: {
+                description:
+                  'Подбор компонентов и логика системы соотносятся со средой, в которой устойчивость к частой нагрузке так же важна, как и удобство обслуживания.',
+                label: 'Долговечность',
+              },
+              routine: {
+                description:
+                  'Ежедневное перемещение должно оставаться предсказуемым в практичном производственном ритме, не превращая эксплуатацию и сервис в постоянное узкое место.',
+                label: 'Рабочий ритм',
+              },
+              service: {
+                description:
+                  'Сервисный доступ рассматривается как часть проектной логики, чтобы инспекция и постмонтажная поддержка оставались реалистичными на всём жизненном цикле.',
+                label: 'Сервисный доступ',
+              },
+            },
+            featuredNarrative:
+              'В промышленном контексте ключевыми становятся долговечность, удобство сервисного доступа и решение, подготовленное к интенсивной ежедневной нагрузке.',
             location: 'Кострома',
             title: 'Агрохим',
             type: 'Промышленный',
           },
           astrum: {
             description: 'Лифтовое решение, адаптированное под жилой многоквартирный объект.',
+            featuredContext:
+              'Это означает настройку системы под жилые сценарии трафика, ожидание тихой работы и сервисную стратегию, рассчитанную на долгосрочное повседневное использование.',
+            featuredDetails: {
+              comfort: {
+                description:
+                  'Ежедневный жилой опыт зависит от тихого, предсказуемого движения и среды кабины, которая ощущается спокойной, а не перегруженной инженерией.',
+                label: 'Комфорт проживания',
+              },
+              focus: {
+                description:
+                  'Проект требует решения, поддерживающего регулярный бытовой трафик без ощущения визуальной или эксплуатационной тяжести вертикального транспорта.',
+                label: 'Фокус проекта',
+              },
+              maintenance: {
+                description:
+                  'Долгосрочное обслуживание входит в ценность решения наравне с первоначальной спецификацией, поэтому система завязана и на сервисную непрерывность.',
+                label: 'Горизонт сервиса',
+              },
+            },
+            featuredNarrative:
+              'Для жилого объекта приоритетом стали спокойный ежедневный пассажирский сценарий, компактная логика системы и долгосрочный бытовой комфорт.',
             location: 'Казань',
             title: 'Astrum',
             type: 'Жилой',
@@ -336,6 +462,27 @@ export const resources = {
           riverhouse: {
             description:
               'Флагманский объект с акцентом на плавную циркуляцию, архитектурную интеграцию и уверенную ежедневную эксплуатацию.',
+            featuredContext:
+              'Инженерное решение поддерживает пространственный характер проекта и при этом сохраняет понятный, комфортный и надёжный пассажирский поток в ежедневной коммерческой эксплуатации.',
+            featuredDetails: {
+              architecture: {
+                description:
+                  'Оборудование должно читаться как часть архитектурного языка проекта, поддерживая премиальный характер пространства, а не споря с ним.',
+                label: 'Архитектурная роль',
+              },
+              focus: {
+                description:
+                  'Для этого комплекса требуется вертикальная мобильность, которая ощущается представительской, плавной в циркуляции и естественной внутри коммерческой front-of-house среды.',
+                label: 'Фокус проекта',
+              },
+              operations: {
+                description:
+                  'С эксплуатационной точки зрения система обязана сохранять понятный и комфортный пассажирский сценарий на всём ежедневном ритме здания.',
+                label: 'Ежедневная эксплуатация',
+              },
+            },
+            featuredNarrative:
+              'Для этого коммерческого объекта было важно, чтобы вертикальное движение ощущалось плавным, представительским и органично встроенным в архитектуру комплекса.',
             location: 'Московская область',
             title: 'Riverhouse',
             type: 'Коммерческий',
@@ -343,6 +490,27 @@ export const resources = {
           schoolBogorodsky: {
             description:
               'Вертикальный транспорт, предусмотренный для общественного образовательного здания.',
+            featuredContext:
+              'Итоговая транспортная логика должна оставаться понятной для учеников, сотрудников и посетителей, поддерживая стабильный рабочий ритм в течение всего учебного дня.',
+            featuredDetails: {
+              clarity: {
+                description:
+                  'Поскольку зданием в течение дня пользуются разные группы, навигация и вертикальная циркуляция должны оставаться читаемыми в каждом пользовательском сценарии.',
+                label: 'Понятность для всех',
+              },
+              flow: {
+                description:
+                  'Школьный трафик формирует собственный ежедневный ритм, поэтому mobility-стратегия должна поддерживать предсказуемые пики, переходы и непрерывное использование.',
+                label: 'Ежедневный поток',
+              },
+              safety: {
+                description:
+                  'Спецификация строится вокруг безопасной ежедневной эксплуатации, устойчивого поведения оборудования и уверенности в повторяющейся общественной нагрузке.',
+                label: 'Логика безопасности',
+              },
+            },
+            featuredNarrative:
+              'Для образовательного здания акцент смещается на интуитивную навигацию, безопасное ежедневное использование и стабильную работу оборудования в ритме учебного дня.',
             location: 'Тюмень',
             title: 'Школа, Богородский',
             type: 'Образование',

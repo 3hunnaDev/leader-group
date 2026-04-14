@@ -44,7 +44,7 @@
 }
 
 .home-hero__media {
-  margin-top: 1.5rem;
+  margin-top: 1.75rem;
   display: grid;
   gap: 0.875rem;
 }
@@ -59,8 +59,6 @@
 
 html[lang='ru'] .home-hero__title {
   max-width: none;
-  font-size: clamp(1.375rem, 4.25vw, 3.25rem);
-  line-height: 1;
 }
 
 html[lang='ru'] .home-hero__title-line--ru-second,
@@ -91,19 +89,6 @@ html[lang='ru'] .home-hero__title-line + .home-hero__title-line {
   }
 }
 
-@media (min-width: 1024px) {
-  .home-hero__media {
-    margin-top: 2.625rem;
-    grid-template-columns: minmax(0, 1fr) 24rem;
-    gap: 1.125rem;
-  }
-
-  .home-hero__media-main,
-  .home-hero__media-side {
-    min-height: 35rem;
-  }
-}
-
 @media (min-width: 640px) {
   .home-hero__media-main {
     min-height: 21rem;
@@ -111,5 +96,18 @@ html[lang='ru'] .home-hero__title-line + .home-hero__title-line {
 
   .home-hero__media-side {
     min-height: 16.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .home-hero__media {
+    margin-top: 3rem;
+    grid-template-columns: minmax(0, 1fr) 22.5rem;
+    gap: 1.25rem;
+  }
+
+  .home-hero__media-main,
+  .home-hero__media-side {
+    min-height: 37rem;
   }
 }
