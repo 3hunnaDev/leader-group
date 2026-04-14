@@ -1,5 +1,6 @@
 import '@testing-library/jest-dom/vitest'
 import { cleanup } from '@testing-library/react'
+import i18n, { LANGUAGE_STORAGE_KEY } from '@shared/config/i18n'
 import { afterEach, vi } from 'vitest'
 
 const createMediaQueryList = (query: string): MediaQueryList => {
@@ -76,6 +77,9 @@ afterEach(() => {
   document.body.style.overflow = ''
   document.body.innerHTML = ''
   document.title = ''
+  document.documentElement.lang = 'en'
+  localStorage.removeItem(LANGUAGE_STORAGE_KEY)
   window.history.pushState({}, '', '/')
+  void i18n.changeLanguage('en')
   vi.clearAllMocks()
 })

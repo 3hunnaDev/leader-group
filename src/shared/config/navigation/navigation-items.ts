@@ -1,14 +1,14 @@
 export type NavigationItem = {
   href: string
-  label: string
+  labelKey: string
 }
 
 export const navigationItems: NavigationItem[] = [
-  { href: '/#home', label: 'Home' },
-  { href: '/#solutions', label: 'Solutions' },
-  { href: '/#why-us', label: 'Why Us' },
-  { href: '/#projects', label: 'Projects' },
-  { href: '/#contact', label: 'Contact' },
+  { href: '/#home', labelKey: 'header.navigation.home' },
+  { href: '/#solutions', labelKey: 'header.navigation.solutions' },
+  { href: '/#why-us', labelKey: 'header.navigation.whyUs' },
+  { href: '/#projects', labelKey: 'header.navigation.projects' },
+  { href: '/#contact', labelKey: 'header.navigation.contact' },
 ]
 
 export const contactNavigationItems = navigationItems.filter((item) => item.href !== '/#contact')

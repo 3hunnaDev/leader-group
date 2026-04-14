@@ -1,23 +1,28 @@
+import type { TFunction } from 'i18next'
+
 export type CompanySocialLink = {
   href: string
   label: string
 }
 
-export const companyContactSection = {
-  bottomText: 'Use of site materials without official permission is prohibited.',
-  bottomTitle: '© Leader Group',
-  columnContactsTitle: 'Contacts',
-  columnMenuTitle: 'Menu',
-  ctaHref:
-    'https://wa.me/79801591029?text=Hello!%20I%20would%20like%20to%20request%20a%20proposal%20for%20a%20vertical%20mobility%20project.',
-  ctaLabel: 'Request a proposal',
-  description:
-    'Send a request and Leader Group will prepare a commercial proposal within one working day.',
-  eyebrow: 'Contact',
-  narrative:
-    'Design, supply, installation, and support for lifts, escalators, and travelators across Russia.',
-  narrativeTitle: 'Narrative',
-  title: 'Let’s talk about your next project',
+function createWhatsAppProposalHref(message: string) {
+  return `https://wa.me/79801591029?text=${encodeURIComponent(message)}`
+}
+
+export function getCompanyContactSection(t: TFunction) {
+  return {
+    bottomText: t('contact.bottomText'),
+    bottomTitle: t('contact.bottomTitle'),
+    columnContactsTitle: t('contact.columnContactsTitle'),
+    columnMenuTitle: t('contact.columnMenuTitle'),
+    ctaHref: createWhatsAppProposalHref(t('contact.ctaMessage')),
+    ctaLabel: t('common.ctaRequestProposal'),
+    description: t('contact.description'),
+    eyebrow: t('contact.eyebrow'),
+    narrative: t('contact.narrative'),
+    narrativeTitle: t('contact.narrativeTitle'),
+    title: t('contact.title'),
+  }
 }
 
 export const companyPhoneNumbers = [
@@ -26,13 +31,15 @@ export const companyPhoneNumbers = [
   '+7 (925) 456-91-99',
 ]
 
-export const companySocialLinks: CompanySocialLink[] = [
-  {
-    href: 'https://wa.me/79801591029',
-    label: 'WhatsApp',
-  },
-  {
-    href: 'https://t.me/lidergroupp',
-    label: 'Telegram',
-  },
-]
+export function getCompanySocialLinks(t: TFunction): CompanySocialLink[] {
+  return [
+    {
+      href: 'https://wa.me/79801591029',
+      label: t('contact.social.whatsapp'),
+    },
+    {
+      href: 'https://t.me/lidergroupp',
+      label: t('contact.social.telegram'),
+    },
+  ]
+}

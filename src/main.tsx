@@ -2,6 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from '@app/app'
 import { StoreProvider } from '@app/providers/store-provider'
+import '@shared/config/i18n'
 import './index.css'
 
 createRoot(document.getElementById('root')!).render(

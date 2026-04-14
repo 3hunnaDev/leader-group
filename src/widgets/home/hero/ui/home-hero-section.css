@@ -1,7 +1,7 @@
 .home-hero__title {
   margin: 1rem 0 0;
-  max-width: 11ch;
-  font-size: clamp(3.5rem, 11vw, 6rem);
+  max-width: 14ch;
+  font-size: clamp(2.35rem, 8.5vw, 3.875rem);
   font-weight: 800;
   line-height: 0.94;
   letter-spacing: -0.034em;
@@ -11,6 +11,14 @@
 
 .home-hero__title-soft {
   color: var(--color-text-soft);
+}
+
+.home-hero__title-line {
+  display: block;
+}
+
+.home-hero__title-cluster {
+  white-space: normal;
 }
 
 .home-hero__head {
@@ -49,10 +57,37 @@
   min-height: 13.75rem;
 }
 
+html[lang='ru'] .home-hero__title {
+  max-width: none;
+  font-size: clamp(1.375rem, 4.25vw, 3.25rem);
+  line-height: 1;
+}
+
+html[lang='ru'] .home-hero__title-line--ru-second,
+html[lang='ru'] .home-hero__title-line--ru-third,
+html[lang='ru'] .home-hero__title-line--ru-fourth {
+  white-space: nowrap;
+}
+
+html[lang='ru'] .home-hero__title-line + .home-hero__title-line {
+  margin-top: 0.06em;
+}
+
+@media (min-width: 900px) {
+  .home-hero__head {
+    grid-template-columns: minmax(0, 1fr) clamp(16rem, 28vw, 22rem);
+    gap: clamp(1.5rem, 2vw, 2.5rem);
+  }
+}
+
 @media (min-width: 1200px) {
   .home-hero__head {
     grid-template-columns: minmax(0, 1fr) 25.5rem;
     gap: 3.25rem;
+  }
+
+  html[lang='ru'] .home-hero__head {
+    grid-template-columns: minmax(0, 1fr) 23rem;
   }
 }
 

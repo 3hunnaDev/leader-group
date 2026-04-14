@@ -1,9 +1,18 @@
-import { companyContactSection, companyPhoneNumbers, companySocialLinks } from '@entities/company'
+import {
+  getCompanyContactSection,
+  companyPhoneNumbers,
+  getCompanySocialLinks,
+} from '@entities/company'
 import { contactNavigationItems } from '@shared/config/navigation'
 import { HashLink } from '@shared/ui/hash-link'
+import { useTranslation } from 'react-i18next'
 import './home-contact-section.css'
 
 export function HomeContactSection() {
+  const { t } = useTranslation()
+  const companyContactSection = getCompanyContactSection(t)
+  const companySocialLinks = getCompanySocialLinks(t)
+
   return (
     <footer id="contact" className="home-contact home-section" data-header-tone="dark">
       <div className="home-contact__inner">
@@ -37,7 +46,7 @@ export function HomeContactSection() {
               {contactNavigationItems.map((item) => (
                 <li key={item.href}>
                   <HashLink to={item.href} className="home-contact__link">
-                    {item.label}
+                    {t(item.labelKey)}
                   </HashLink>
                 </li>
               ))}

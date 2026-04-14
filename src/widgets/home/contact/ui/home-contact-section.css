@@ -29,7 +29,7 @@
 
 .home-contact__title {
   margin: 1rem 0 0;
-  max-width: 14ch;
+  max-width: 16ch;
   font-size: clamp(2.2rem, 8vw, 3.875rem);
   font-weight: 800;
   text-transform: uppercase;
@@ -43,6 +43,10 @@
   font-size: 1rem;
   line-height: 1.55;
   color: rgba(244, 244, 244, 0.82);
+}
+
+.home-contact__eyebrow ~ :is(.home-contact__title, .home-contact__copy) {
+  margin-inline-start: var(--home-eyebrow-content-offset, clamp(0.35rem, 0.7vw, 0.6rem));
 }
 
 .home-contact__cta {

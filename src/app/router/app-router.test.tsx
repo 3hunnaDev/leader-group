@@ -1,4 +1,5 @@
 import { render, screen, waitFor } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { RouterProvider, createMemoryRouter } from 'react-router-dom'
 import { describe, expect, it } from 'vitest'
 import { appRoutes } from './app-router'
@@ -43,5 +44,31 @@ describe('appRoutes', () => {
     await waitFor(() => {
       expect(document.title).toBe('Projects :: Leader Group')
     })
+  })
+
+  it('switches the site copy to Russian when the locale toggle is used', async () => {
+    const user = userEvent.setup()
+    const router = createRouter('/')
+
+    render(<RouterProvider router={router} />)
+
+    const russianSwitch = document.querySelector<HTMLButtonElement>(
+      '.site-header-desktop .site-header-locale-switch__button[data-language="ru"]',
+    )
+
+    if (!russianSwitch) {
+      throw new Error('Expected Russian language switch to be rendered')
+    }
+
+    await user.click(russianSwitch)
+
+    await waitFor(() => {
+      expect(document.title).toBe('Главная :: Leader Group')
+    })
+
+    expect(
+      await screen.findByRole('heading', { level: 1, name: /вертикальная мобильность/i }),
+    ).toBeInTheDocument()
+    expect(screen.getAllByRole('link', { name: 'Запросить предложение' }).length).toBeGreaterThan(0)
   })
 })

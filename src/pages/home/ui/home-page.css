@@ -1,10 +1,11 @@
 .home-page {
+  --home-eyebrow-content-offset: clamp(0.35rem, 0.7vw, 0.6rem);
   width: min(100%, 1440px);
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: clamp(3.5rem, 8vw, 6rem);
-  padding: 0 1.25rem;
+  padding: 0 1rem;
 }
 
 .home-section {
@@ -39,7 +40,7 @@
 
 .home-section__title {
   margin: 1rem 0 0;
-  max-width: 14ch;
+  max-width: 16ch;
   color: var(--color-text);
   font-size: clamp(2.35rem, 8.5vw, 3.875rem);
   font-weight: 800;
@@ -50,6 +51,10 @@
 
 .home-section__title-soft {
   color: var(--color-text-soft);
+}
+
+.home-section__eyebrow ~ :is(.home-section__title, .home-hero__title) {
+  margin-inline-start: var(--home-eyebrow-content-offset);
 }
 
 .home-section__copy {
@@ -107,8 +112,8 @@
 
 @media (min-width: 768px) {
   .home-page {
-    padding-right: 2rem;
-    padding-left: 2rem;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
   }
 
   .home-section__copy {
@@ -123,13 +128,13 @@
   }
 
   .home-section__title {
-    max-width: 15ch;
+    max-width: 17ch;
   }
 }
 
 @media (min-width: 1280px) {
   .home-page {
-    padding-right: 3rem;
-    padding-left: 3rem;
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
   }
 }

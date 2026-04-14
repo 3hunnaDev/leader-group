@@ -1,42 +1,48 @@
+import type { TFunction } from 'i18next'
+
 export type CompanyProofBlock = {
   description: string
+  id: string
   isAccent?: boolean
   kicker: string
   title: string
 }
 
-export const companyProofSection = {
-  description:
-    'The value sits in coordination, certification, and how well every system fits the building it serves, not in inflated metrics.',
-  sectionLabel: 'Why Us',
-  title: 'We don’t just supply equipment ',
-  titleSoft: 'we design reliable movement.',
+export function getCompanyProofSection(t: TFunction) {
+  return {
+    description: t('proof.description'),
+    sectionLabel: t('proof.sectionLabel'),
+    title: t('proof.title'),
+    titleSoft: t('proof.titleSoft'),
+  }
 }
 
-export const companyProofBlocks: CompanyProofBlock[] = [
-  {
-    description:
-      'Long-term involvement in lift projects informs specification, planning, and risk control from first briefing to final launch.',
-    isAccent: true,
-    kicker: 'Experience',
-    title: '20+ years of industry experience',
-  },
-  {
-    description:
-      'Installation and testing follow a structured process designed for safe commissioning and predictable handover.',
-    kicker: 'Delivery',
-    title: 'Certified installation workflow',
-  },
-  {
-    description:
-      'Cabin aesthetics, shaft logic, and traffic planning are aligned with the wider building concept rather than treated separately.',
-    kicker: 'Integration',
-    title: 'Architectural integration',
-  },
-  {
-    description:
-      'The relationship continues after launch with service guidance, spare parts planning, and operational support.',
-    kicker: 'Support',
-    title: 'Post-warranty support',
-  },
-]
+export function getCompanyProofBlocks(t: TFunction): CompanyProofBlock[] {
+  return [
+    {
+      description: t('proof.items.experience.description'),
+      id: 'experience',
+      isAccent: true,
+      kicker: t('proof.items.experience.kicker'),
+      title: t('proof.items.experience.title'),
+    },
+    {
+      description: t('proof.items.workflow.description'),
+      id: 'workflow',
+      kicker: t('proof.items.workflow.kicker'),
+      title: t('proof.items.workflow.title'),
+    },
+    {
+      description: t('proof.items.architecturalIntegration.description'),
+      id: 'architectural-integration',
+      kicker: t('proof.items.architecturalIntegration.kicker'),
+      title: t('proof.items.architecturalIntegration.title'),
+    },
+    {
+      description: t('proof.items.postWarrantySupport.description'),
+      id: 'post-warranty-support',
+      kicker: t('proof.items.postWarrantySupport.kicker'),
+      title: t('proof.items.postWarrantySupport.title'),
+    },
+  ]
+}

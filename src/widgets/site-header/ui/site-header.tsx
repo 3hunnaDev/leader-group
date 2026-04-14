@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useLocation } from 'react-router-dom'
 import { navigationItems } from '@shared/config/navigation'
 import { getLocationTarget } from '@shared/lib/hash-navigation'
@@ -10,6 +11,7 @@ import './site-header.css'
 
 export function SiteHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { i18n, t } = useTranslation()
   const location = useLocation()
   const activeHref = useActiveNavigationHref(navigationItems)
   const headerRef = useRef<HTMLElement>(null)
@@ -98,8 +100,8 @@ export function SiteHeader() {
   }, [location.hash, location.pathname])
 
   useEffect(() => {
-    document.title = resolvePageTitle(navigationItems, locationTarget)
-  }, [locationTarget])
+    document.title = resolvePageTitle(navigationItems, locationTarget, t)
+  }, [i18n.resolvedLanguage, locationTarget, t])
 
   return (
     <header ref={headerRef} className="site-header">

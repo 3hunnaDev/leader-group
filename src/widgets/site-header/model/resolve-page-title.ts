@@ -1,15 +1,16 @@
+import type { TFunction } from 'i18next'
 import type { NavigationItem } from '@shared/config/navigation'
 
-const BASE_TITLE = 'Leader Group'
 const HOME_HREF = '/#home'
+const BASE_TITLE_KEY = 'meta.baseTitle'
 
-export function resolvePageTitle(items: NavigationItem[], locationTarget: string) {
+export function resolvePageTitle(items: NavigationItem[], locationTarget: string, t: TFunction) {
   const normalizedTarget = locationTarget === '/' ? HOME_HREF : locationTarget
   const currentItem = items.find((item) => item.href === normalizedTarget)
 
-  if (!currentItem?.label) {
-    return BASE_TITLE
+  if (!currentItem) {
+    return t(BASE_TITLE_KEY)
   }
 
-  return `${currentItem.label} :: ${BASE_TITLE}`
+  return `${t(currentItem.labelKey)} :: ${t(BASE_TITLE_KEY)}`
 }

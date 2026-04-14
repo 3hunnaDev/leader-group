@@ -1,8 +1,13 @@
-import { serviceCatalogSection, serviceOfferings } from '@entities/service'
+import { getServiceCatalogSection, getServiceOfferings } from '@entities/service'
+import { useTranslation } from 'react-i18next'
 import { MediaPlaceholder } from '@shared/ui/media-placeholder'
 import './home-services-section.css'
 
 export function HomeServicesSection() {
+  const { t } = useTranslation()
+  const serviceCatalogSection = getServiceCatalogSection(t)
+  const serviceOfferings = getServiceOfferings(t)
+
   return (
     <section id="solutions" className="home-services home-section">
       <div className="home-section__head">
@@ -18,8 +23,11 @@ export function HomeServicesSection() {
 
       <div className="home-services__grid">
         {serviceOfferings.map((item) => (
-          <article key={item.title} className="home-services__card">
-            <MediaPlaceholder label="Service image / 4:3" className="home-services__media" />
+          <article key={item.id} className="home-services__card">
+            <MediaPlaceholder
+              label={t('common.placeholders.serviceImage')}
+              className="home-services__media"
+            />
             <span className="home-card-tag">{item.meta}</span>
             <h3 className="home-services__card-title">{item.title}</h3>
             <p className="home-services__card-copy">{item.description}</p>

@@ -40,6 +40,13 @@
   text-transform: uppercase;
 }
 
+html[lang='ru'] .home-proof__card-title {
+  font-size: clamp(1.35rem, 1.1rem + 0.8vw, 1.5rem);
+  line-height: 1.08;
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
+
 .home-proof__card-copy {
   margin: 1rem 0 0;
   color: var(--color-text-muted);

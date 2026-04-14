@@ -1,8 +1,10 @@
 import type { Ref } from 'react'
+import { useTranslation } from 'react-i18next'
 import type { NavigationItem } from '@shared/config/navigation'
 import { Modal } from '@shared/ui/modal'
 import { SiteHeaderBrandPill } from './site-header-brand-pill'
 import { SiteHeaderIconButton } from './site-header-icon-button'
+import { SiteHeaderLocaleSwitch } from './site-header-locale-switch'
 import { SiteHeaderNavPill } from './site-header-nav-pill'
 
 type SiteHeaderMobileProps = {
@@ -22,6 +24,7 @@ export function SiteHeaderMobile({
   onCloseMenu,
   rootRef,
 }: SiteHeaderMobileProps) {
+  const { t } = useTranslation()
   const mobileMenuContentId = 'site-header-mobile-menu'
 
   return (
@@ -33,13 +36,16 @@ export function SiteHeaderMobile({
       >
         <SiteHeaderBrandPill to="/" onNavigate={onCloseMenu} />
 
-        <SiteHeaderIconButton
-          isActive={isMenuOpen}
-          ariaLabel={isMenuOpen ? 'Close navigation' : 'Open navigation'}
-          ariaExpanded={isMenuOpen}
-          ariaControls={mobileMenuContentId}
-          onNavigate={onToggleMenu}
-        />
+        <div className="site-header-mobile__actions">
+          <SiteHeaderLocaleSwitch />
+          <SiteHeaderIconButton
+            isActive={isMenuOpen}
+            ariaLabel={isMenuOpen ? t('header.menu.close') : t('header.menu.open')}
+            ariaExpanded={isMenuOpen}
+            ariaControls={mobileMenuContentId}
+            onNavigate={onToggleMenu}
+          />
+        </div>
       </div>
 
       <Modal
@@ -48,15 +54,15 @@ export function SiteHeaderMobile({
         overlayClassName="site-header-mobile__modal-overlay"
         contentClassName="site-header-mobile__modal-content"
         contentId={mobileMenuContentId}
-        ariaLabel="Navigation menu"
+        ariaLabel={t('header.menu.dialogLabel')}
         closeAnimationDurationMs={420}
       >
         <div className="site-header-mobile__panel">
-          <nav className="site-header-mobile__nav" aria-label="Site navigation">
+          <nav className="site-header-mobile__nav" aria-label={t('header.menu.navigationLabel')}>
             {navigationItems.map((item) => (
               <SiteHeaderNavPill
                 key={item.href}
-                text={item.label}
+                text={t(item.labelKey)}
                 href={item.href}
                 onNavigate={onCloseMenu}
                 isCurrent={activeHref === item.href}

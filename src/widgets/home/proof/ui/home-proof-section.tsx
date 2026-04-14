@@ -1,7 +1,12 @@
-import { companyProofBlocks, companyProofSection } from '@entities/company'
+import { getCompanyProofBlocks, getCompanyProofSection } from '@entities/company'
+import { useTranslation } from 'react-i18next'
 import './home-proof-section.css'
 
 export function HomeProofSection() {
+  const { t } = useTranslation()
+  const companyProofSection = getCompanyProofSection(t)
+  const companyProofBlocks = getCompanyProofBlocks(t)
+
   return (
     <section id="why-us" className="home-proof home-section">
       <div className="home-section__head">
@@ -18,7 +23,7 @@ export function HomeProofSection() {
       <div className="home-proof__grid">
         {companyProofBlocks.map((item) => (
           <article
-            key={item.title}
+            key={item.id}
             className={`home-proof__card ${item.isAccent ? 'home-proof__card--accent' : ''}`}
           >
             <div>

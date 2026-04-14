@@ -1,9 +1,13 @@
-import { projectCases, projectShowcaseSection } from '@entities/project'
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { getProjectCases, getProjectShowcaseSection } from '@entities/project'
 import { MediaPlaceholder } from '@shared/ui/media-placeholder'
 import './home-projects-section.css'
 
 export function HomeProjectsSection() {
+  const { t } = useTranslation()
+  const projectCases = getProjectCases(t)
+  const projectShowcaseSection = getProjectShowcaseSection(t)
   const [activeProjectIndex, setActiveProjectIndex] = useState(0)
   const projectCount = projectCases.length
   const hasProjectSwitching = projectCount > 1
@@ -51,7 +55,7 @@ export function HomeProjectsSection() {
               <button
                 type="button"
                 className="home-projects__arrow home-projects__arrow--light"
-                aria-label="Show previous project"
+                aria-label={t('projects.controls.previous')}
                 onClick={handlePreviousProject}
                 disabled={!hasProjectSwitching}
               >
@@ -60,7 +64,7 @@ export function HomeProjectsSection() {
               <button
                 type="button"
                 className="home-projects__arrow home-projects__arrow--dark"
-                aria-label="Show next project"
+                aria-label={t('projects.controls.next')}
                 onClick={handleNextProject}
                 disabled={!hasProjectSwitching}
               >
@@ -73,7 +77,10 @@ export function HomeProjectsSection() {
 
       <div className="home-projects__layout">
         <article className="home-projects__card home-projects__card--featured">
-          <MediaPlaceholder label="Project image / 4:3" className="home-projects__media" />
+          <MediaPlaceholder
+            label={t('common.placeholders.projectImage')}
+            className="home-projects__media"
+          />
           <span className="home-card-tag">
             {featuredProject.location} / {featuredProject.type}
           </span>
@@ -83,8 +90,11 @@ export function HomeProjectsSection() {
 
         <div className="home-projects__stack">
           {secondaryProjects.map((project) => (
-            <article key={project.title} className="home-projects__card">
-              <MediaPlaceholder label="Project image / 4:3" className="home-projects__media" />
+            <article key={project.id} className="home-projects__card">
+              <MediaPlaceholder
+                label={t('common.placeholders.projectImage')}
+                className="home-projects__media"
+              />
               <span className="home-card-tag">
                 {project.location} / {project.type}
               </span>

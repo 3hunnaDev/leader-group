@@ -1,6 +1,8 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import type { NavigationItem } from '@shared/config/navigation'
 import { SiteHeaderBrandPill } from './site-header-brand-pill'
+import { SiteHeaderLocaleSwitch } from './site-header-locale-switch'
 import { SiteHeaderNavPill } from './site-header-nav-pill'
 
 type SiteHeaderDesktopProps = {
@@ -10,6 +12,7 @@ type SiteHeaderDesktopProps = {
 
 export function SiteHeaderDesktop({ navigationItems, activeHref }: SiteHeaderDesktopProps) {
   const [hoveredHref, setHoveredHref] = useState<string | null>(null)
+  const { t } = useTranslation()
 
   return (
     <div className="site-header-desktop">
@@ -28,7 +31,7 @@ export function SiteHeaderDesktop({ navigationItems, activeHref }: SiteHeaderDes
                 return (
                   <SiteHeaderNavPill
                     key={item.href}
-                    text={item.label}
+                    text={t(item.labelKey)}
                     href={item.href}
                     onMouseEnter={() => setHoveredHref(item.href)}
                     isCurrent={isActive}
@@ -39,11 +42,14 @@ export function SiteHeaderDesktop({ navigationItems, activeHref }: SiteHeaderDes
             </nav>
           </div>
 
-          <SiteHeaderNavPill
-            text="Request a proposal"
-            href="/#contact"
-            className="site-header-nav-pill--cta site-header-desktop__cta"
-          />
+          <div className="site-header-desktop__actions">
+            <SiteHeaderLocaleSwitch />
+            <SiteHeaderNavPill
+              text={t('common.ctaRequestProposal')}
+              href="/#contact"
+              className="site-header-nav-pill--cta site-header-desktop__cta"
+            />
+          </div>
         </div>
       </div>
     </div>

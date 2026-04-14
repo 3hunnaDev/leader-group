@@ -1,42 +1,51 @@
+import type { TFunction } from 'i18next'
+
 export type ProjectCase = {
   description: string
+  id: string
   location: string
   title: string
   type: string
 }
 
-export const projectShowcaseSection = {
-  description:
-    'A curated selection of installations based on the current Leader Group project set, reframed as an editorial portfolio.',
-  sectionLabel: 'Projects',
-  title: 'Projects that move ',
-  titleSoft: 'people and space.',
+export function getProjectShowcaseSection(t: TFunction) {
+  return {
+    description: t('projects.description'),
+    sectionLabel: t('projects.sectionLabel'),
+    title: t('projects.title'),
+    titleSoft: t('projects.titleSoft'),
+  }
 }
 
-export const projectCases: ProjectCase[] = [
-  {
-    description:
-      'Featured installation focused on smooth circulation, premium architectural fit, and confident day-to-day operation.',
-    location: 'Moscow Region',
-    title: 'Riverhouse',
-    type: 'Commercial',
-  },
-  {
-    description: 'Lift solution tailored to a multi-unit residential context.',
-    location: 'Kazan',
-    title: 'Astrum',
-    type: 'Residential',
-  },
-  {
-    description: 'Vertical mobility specified for a public educational building.',
-    location: 'Tyumen',
-    title: 'School, Bogorodsky',
-    type: 'Education',
-  },
-  {
-    description: 'Industrial installation balancing durability and serviceability.',
-    location: 'Kostroma',
-    title: 'Agrokhim',
-    type: 'Industrial',
-  },
-]
+export function getProjectCases(t: TFunction): ProjectCase[] {
+  return [
+    {
+      description: t('projects.items.riverhouse.description'),
+      id: 'riverhouse',
+      location: t('projects.items.riverhouse.location'),
+      title: t('projects.items.riverhouse.title'),
+      type: t('projects.items.riverhouse.type'),
+    },
+    {
+      description: t('projects.items.astrum.description'),
+      id: 'astrum',
+      location: t('projects.items.astrum.location'),
+      title: t('projects.items.astrum.title'),
+      type: t('projects.items.astrum.type'),
+    },
+    {
+      description: t('projects.items.schoolBogorodsky.description'),
+      id: 'school-bogorodsky',
+      location: t('projects.items.schoolBogorodsky.location'),
+      title: t('projects.items.schoolBogorodsky.title'),
+      type: t('projects.items.schoolBogorodsky.type'),
+    },
+    {
+      description: t('projects.items.agrokhim.description'),
+      id: 'agrokhim',
+      location: t('projects.items.agrokhim.location'),
+      title: t('projects.items.agrokhim.title'),
+      type: t('projects.items.agrokhim.type'),
+    },
+  ]
+}
