@@ -2,8 +2,11 @@ import react from '@vitejs/plugin-react'
 import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vitest/config'
 
+const githubPagesBasePath = '/leader-group/'
+
 // https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({ command }) => ({
+  base: command === 'build' ? githubPagesBasePath : '/',
   plugins: [react()],
   resolve: {
     alias: {
@@ -34,4 +37,4 @@ export default defineConfig({
       reporter: ['text', 'html'],
     },
   },
-})
+}))
