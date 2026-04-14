@@ -40,8 +40,8 @@ export function SiteHeaderDesktop({ navigationItems, activeHref }: SiteHeaderDes
           </div>
 
           <SiteHeaderNavPill
-            text="Оставить заявку"
-            href="/#contacts"
+            text="Request a proposal"
+            href="/#contact"
             className="site-header-nav-pill--cta site-header-desktop__cta"
           />
         </div>

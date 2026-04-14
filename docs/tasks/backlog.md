@@ -6,6 +6,17 @@
 
 ## Done
 
+### TASK-009
+
+- Status: Done
+- Date: 2026-04-14
+- Priority: High
+- Title: Реализовать editorial-redesign homepage в приложении вместо capture-структуры
+- Result:
+  Главная страница переведена на новый English editorial narrative с сохранением glass-наследия `SiteHeader`. Hero, solutions, proof, approach, projects и footer/contact пересобраны под новый ритм секций, project/service/company content обновлён в `entities`, а медиа-зоны переведены на дизайн-плейсхолдеры вместо capture-изображений.
+- Verification:
+  Должны проходить `npm run test:run`, `npm run build`, `npm run lint`, `npm run lint:styles`, `npm run format:check`.
+
 ### TASK-001
 
 - Status: Done

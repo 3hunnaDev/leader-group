@@ -2,6 +2,27 @@
 
 В этом файле фиксируются все заметные изменения проекта. Новые записи добавляются сверху.
 
+## 2026-04-14
+
+### Added
+
+- Добавлены новые entity-модели `company-proof`, `company-approach` и общий `MediaPlaceholder` для финальных editorial media-slots без подстановки изображений.
+- Добавлены новые home-widget секции `proof` и `approach` как часть нового narrative главной страницы.
+
+### Changed
+
+- Главная страница полностью пересобрана под новый English editorial-redesign: обновлены hero, solutions, projects и footer/contact, а старая `about`-секция заменена на proof/approach композицию.
+- Навигация и page-title синхронизированы с новой структурой секций `home / solutions / why-us / projects / contact`.
+- Контент `services`, `projects` и `company` переведён на новый narrative, сохраняя реальные project/contact данные Leader Group без fake testimonials и hard-metric claims.
+- Мобильный header упрощён под реальный web-layout, а временный fixed mobile CTA и связанный layout-padding удалены.
+- Геометрия mobile hamburger-icon в header переведена на симметричную pixel-grid-анимацию, чтобы линии не выглядели разной толщины в покое и при раскрытии меню.
+- Burger trigger в header теперь тоже переключается в светлую гамму на тёмных секциях, синхронно с инверсией логотипа, а в открытом menu-state возвращается в тёмный цвет на светлой подложке.
+- Hash-секции получили безопасный scroll-offset под fixed header, а плотные multi-column desktop-layouts сдвинуты на более поздний breakpoint, чтобы medium-width экраны не выглядели пережатыми.
+- Footer/contact slab переведён в full-bleed режим: `home-contact` теперь растягивается на всю ширину viewport, сохраняя внутренний контент в сетке страницы.
+- Убран остаточный белый зазор под footer: нижние page/layout padding'и обнулены, чтобы тёмный contact slab доходил до края viewport.
+- Active-состояние header-навигации теперь синхронизируется с фактическим scroll-положением на home-page, поэтому mobile menu pills автоматически подсвечивают видимую секцию, а не только последний hash.
+- Вертикальный отступ между hero eyebrow и главным H1 выровнен с остальными editorial-секциями, чтобы ритм заголовков на странице был симметричнее.
+
 ## 2026-04-08
 
 ### Added

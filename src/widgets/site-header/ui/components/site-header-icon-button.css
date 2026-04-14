@@ -48,9 +48,13 @@
 }
 
 .burger {
+  --burger-width: 22px;
+  --burger-height: 16px;
+  --burger-line-height: 2px;
+  --burger-line-center: calc(50% - 1px);
   position: relative;
-  width: 1.35rem;
-  height: 1.0125rem;
+  width: var(--burger-width);
+  height: var(--burger-height);
   background: transparent;
   cursor: pointer;
   display: block;
@@ -65,49 +69,45 @@
 .burger span {
   display: block;
   position: absolute;
-  height: 0.135rem;
-  width: 100%;
-  background: black;
-  border-radius: 9px;
+  height: var(--burger-line-height);
+  width: var(--burger-width);
+  background: currentColor;
+  border-radius: 999px;
   opacity: 1;
-  left: 0;
-  transform: rotate(0deg);
-  transition: 0.25s ease-in-out;
-  will-change: transform, top, left, width, opacity;
+  left: 50%;
+  transform: translateX(-50%);
+  transition:
+    top 0.25s ease-in-out,
+    transform 0.25s ease-in-out,
+    opacity 0.2s ease-in-out;
+  will-change: transform, top, opacity;
 }
 
 .burger span:nth-of-type(1) {
-  top: 0;
-  transform-origin: left center;
+  top: 1px;
+  transform-origin: center;
 }
 
 .burger span:nth-of-type(2) {
-  top: 50%;
-  transform: translateY(-50%);
-  transform-origin: left center;
+  top: var(--burger-line-center);
+  transform-origin: center;
 }
 
 .burger span:nth-of-type(3) {
-  top: 100%;
-  transform-origin: left center;
-  transform: translateY(-100%);
+  top: calc(100% - var(--burger-line-height) - 1px);
+  transform-origin: center;
 }
 
 .burger input:checked ~ span:nth-of-type(1) {
-  width: 100%;
-  transform: rotate(45deg);
-  top: 0;
-  left: 0.17rem;
+  top: var(--burger-line-center);
+  transform: translateX(-50%) rotate(45deg);
 }
 
 .burger input:checked ~ span:nth-of-type(2) {
-  width: 0;
   opacity: 0;
 }
 
 .burger input:checked ~ span:nth-of-type(3) {
-  width: 100%;
-  transform: rotate(-45deg);
-  top: 0.945rem;
-  left: 0.17rem;
+  top: var(--burger-line-center);
+  transform: translateX(-50%) rotate(-45deg);
 }

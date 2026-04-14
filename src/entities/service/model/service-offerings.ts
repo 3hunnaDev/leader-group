@@ -1,32 +1,40 @@
 export type ServiceOffering = {
   description: string
+  meta: string
   title: string
 }
 
 export const serviceCatalogSection = {
-  catalogLinkText: 'Смотреть весь каталог',
-  catalogMeta: 'Каталог',
-  catalogTitle: 'Лифт — это маленькая вселенная, где время останавливается, а люди встречаются.',
-  sectionLabel: 'Ассортимент и услуги',
-  title: 'Подъёмное оборудование',
+  description:
+    'Leader Group adapts vertical transport to architecture, traffic, and operating logic, from compact residential lifts to high-throughput commercial systems.',
+  sectionLabel: 'Solutions',
+  title: 'Systems for business, residential,',
+  titleSoft: ' and public flow.',
 }
 
 export const serviceOfferings: ServiceOffering[] = [
   {
     description:
-      'Комплексные решения для офисных и многофункциональных объектов с высокой нагрузкой.',
-    title: 'Лифты для бизнес центров',
+      'High-capacity systems for offices, mixed-use properties, and projects where throughput and reliability define daily comfort.',
+    meta: 'Business flow',
+    title: 'Business lifts',
   },
   {
-    description: 'Современные пассажирские решения для жилых комплексов и частных домов.',
-    title: 'Лифты для жилых домов',
+    description:
+      'Quiet, durable passenger solutions shaped around residential architecture, accessibility, and long-term maintenance.',
+    meta: 'Residential comfort',
+    title: 'Residential lifts',
   },
   {
-    description: 'Панорамные системы с акцентом на дизайн, обзор и бесшумную работу.',
-    title: 'Панорамные лифты',
+    description:
+      'Expressive glass-forward systems that turn vertical movement into part of the spatial experience without losing engineering discipline.',
+    meta: 'Architectural statement',
+    title: 'Panoramic lifts',
   },
   {
-    description: 'Проектирование, поставка и обслуживание эскалаторов и траволаторов.',
-    title: 'Эскалаторы и траволаторы',
+    description:
+      'Solutions for retail, transit, and public flow where stable operation, service access, and traffic logic matter most.',
+    meta: 'Public circulation',
+    title: 'Escalators & travelators',
   },
 ]

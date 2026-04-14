@@ -1,49 +1,43 @@
-.home-services__grid {
+.home-approach__grid {
   margin-top: 1.5rem;
   display: grid;
   gap: 0.875rem;
 }
 
-.home-services__card {
+.home-approach__card {
+  min-height: 14rem;
   border: 1px solid var(--color-border-soft);
   border-radius: 1.75rem;
   background: var(--color-surface);
-  padding: 1rem;
+  padding: 1.25rem;
 }
 
-.home-services__card-title {
+.home-approach__card-title {
   margin: 0.875rem 0 0;
-  font-size: clamp(1.5rem, 4.2vw, 1.875rem);
+  color: var(--color-text);
+  font-size: clamp(1.45rem, 4vw, 1.875rem);
   font-weight: 800;
-  text-transform: uppercase;
   line-height: 1.02;
   letter-spacing: -0.03em;
-  color: var(--color-text);
+  text-transform: uppercase;
 }
 
-.home-services__card-copy {
+.home-approach__card-copy {
   margin: 0.75rem 0 0;
   color: var(--color-text-muted);
   font-size: 0.9375rem;
   line-height: 1.5;
 }
 
-.home-services__media {
-  min-height: 13.5rem;
-  margin-bottom: 1rem;
-  --media-placeholder-radius: 1.5rem;
-}
-
 @media (min-width: 768px) {
-  .home-services__grid {
+  .home-approach__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
 
-  .home-services__card {
-    padding: 1.125rem;
-  }
-
-  .home-services__media {
-    min-height: 15.5rem;
+@media (min-width: 1200px) {
+  .home-approach__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.125rem;
   }
 }

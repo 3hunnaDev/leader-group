@@ -23,8 +23,13 @@
 
 .site-header--on-dark .site-header-brand-pill,
 .site-header--on-dark .site-header-desktop__nav-shell,
-.site-header--on-dark .site-header-nav-pill {
+.site-header--on-dark .site-header-nav-pill,
+.site-header--on-dark .site-header-icon-button {
   border-color: transparent;
+}
+
+.site-header--on-dark .site-header-icon-button {
+  color: var(--color-white);
 }
 
 .site-header-mobile__row {
@@ -48,6 +53,10 @@
 
 .site-header--on-dark .site-header-mobile__row--menu-open {
   --header-brand-icon-filter: none;
+}
+
+.site-header--on-dark .site-header-mobile__row--menu-open .site-header-icon-button {
+  color: var(--color-surface-dark);
 }
 
 .site-header-mobile__modal-overlay {

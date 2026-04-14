@@ -68,15 +68,6 @@ export function SiteHeaderMobile({
           </nav>
         </div>
       </Modal>
-
-      <div className="site-header-mobile__fixed-cta-shell">
-        <SiteHeaderNavPill
-          text="Оставить заявку"
-          href="/#contacts"
-          onNavigate={onCloseMenu}
-          className="site-header-nav-pill--cta site-header-mobile__fixed-cta"
-        />
-      </div>
     </div>
   )
 }

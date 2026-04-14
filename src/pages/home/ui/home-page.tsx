@@ -1,7 +1,8 @@
 import {
-  HomeAboutSection,
+  HomeApproachSection,
   HomeContactSection,
   HomeHeroSection,
+  HomeProofSection,
   HomeProjectsSection,
   HomeServicesSection,
 } from '@widgets/home'
@@ -12,7 +13,8 @@ export function HomePage() {
     <main className="home-page">
       <HomeHeroSection />
       <HomeServicesSection />
-      <HomeAboutSection />
+      <HomeProofSection />
+      <HomeApproachSection />
       <HomeProjectsSection />
       <HomeContactSection />
     </main>

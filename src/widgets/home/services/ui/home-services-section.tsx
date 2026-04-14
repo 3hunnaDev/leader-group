@@ -1,34 +1,30 @@
 import { serviceCatalogSection, serviceOfferings } from '@entities/service'
-import { HashLink } from '@shared/ui/hash-link'
+import { MediaPlaceholder } from '@shared/ui/media-placeholder'
 import './home-services-section.css'
 
 export function HomeServicesSection() {
   return (
-    <section id="assortment" className="home-services">
-      <div className="home-services__intro">
-        <span className="home-services__label">{serviceCatalogSection.sectionLabel}</span>
-        <h2 className="home-services__title">{serviceCatalogSection.title}</h2>
+    <section id="solutions" className="home-services home-section">
+      <div className="home-section__head">
+        <div>
+          <span className="home-section__eyebrow">{serviceCatalogSection.sectionLabel}</span>
+          <h2 className="home-section__title">
+            {serviceCatalogSection.title}
+            <span className="home-section__title-soft">{serviceCatalogSection.titleSoft}</span>
+          </h2>
+        </div>
+        <p className="home-section__copy">{serviceCatalogSection.description}</p>
       </div>
 
-      <div className="home-services__cards-grid">
+      <div className="home-services__grid">
         {serviceOfferings.map((item) => (
           <article key={item.title} className="home-services__card">
-            <p className="home-services__card-meta">Leader Group</p>
+            <MediaPlaceholder label="Service image / 4:3" className="home-services__media" />
+            <span className="home-card-tag">{item.meta}</span>
             <h3 className="home-services__card-title">{item.title}</h3>
-            <p className="home-services__card-description">{item.description}</p>
-            <HashLink to="/#contacts" className="home-services__card-link">
-              Подробнее
-            </HashLink>
+            <p className="home-services__card-copy">{item.description}</p>
           </article>
         ))}
-      </div>
-
-      <div className="home-services__catalog">
-        <p className="home-services__catalog-meta">{serviceCatalogSection.catalogMeta}</p>
-        <p className="home-services__catalog-title">{serviceCatalogSection.catalogTitle}</p>
-        <HashLink to="/#contacts" className="home-services__catalog-link">
-          {serviceCatalogSection.catalogLinkText}
-        </HashLink>
       </div>
     </section>
   )

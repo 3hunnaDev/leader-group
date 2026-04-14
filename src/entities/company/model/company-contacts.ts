@@ -4,17 +4,20 @@ export type CompanySocialLink = {
 }
 
 export const companyContactSection = {
-  bottomText: 'Использование материалов сайта без официального разрешения запрещено.',
+  bottomText: 'Use of site materials without official permission is prohibited.',
   bottomTitle: '© Leader Group',
-  columnContactsTitle: 'Контакты',
-  columnMenuTitle: 'Разделы',
+  columnContactsTitle: 'Contacts',
+  columnMenuTitle: 'Menu',
   ctaHref:
-    'https://wa.me/79801591029?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%9F%D0%BE%D1%81%D1%87%D0%B8%D1%82%D0%B0%D0%B9%D1%82%D0%B5%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D1%80%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B5%20%D0%BF%D1%80%D0%B5%D0%B4%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%21',
-  ctaLabel: 'Оставить заявку',
+    'https://wa.me/79801591029?text=Hello!%20I%20would%20like%20to%20request%20a%20proposal%20for%20a%20vertical%20mobility%20project.',
+  ctaLabel: 'Request a proposal',
   description:
-    'Наш специалист ответит на все вопросы и подготовит коммерческое предложение в течение 1 рабочего дня.',
-  eyebrow: 'Нужно больше информации?',
-  title: 'Напишите нам',
+    'Send a request and Leader Group will prepare a commercial proposal within one working day.',
+  eyebrow: 'Contact',
+  narrative:
+    'Design, supply, installation, and support for lifts, escalators, and travelators across Russia.',
+  narrativeTitle: 'Narrative',
+  title: 'Let’s talk about your next project',
 }
 
 export const companyPhoneNumbers = [

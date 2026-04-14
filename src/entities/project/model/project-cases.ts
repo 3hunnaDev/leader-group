@@ -1,34 +1,42 @@
 export type ProjectCase = {
+  description: string
   location: string
   title: string
   type: string
 }
 
 export const projectShowcaseSection = {
-  sectionLabel: 'Наши проекты',
-  title: 'Лифт — символ прогресса,',
-  titleSoft: ' который поднимает вверх.',
+  description:
+    'A curated selection of installations based on the current Leader Group project set, reframed as an editorial portfolio.',
+  sectionLabel: 'Projects',
+  title: 'Projects that move ',
+  titleSoft: 'people and space.',
 }
 
 export const projectCases: ProjectCase[] = [
   {
-    location: 'Московская область',
+    description:
+      'Featured installation focused on smooth circulation, premium architectural fit, and confident day-to-day operation.',
+    location: 'Moscow Region',
     title: 'Riverhouse',
-    type: 'Коммерческий объект',
+    type: 'Commercial',
   },
   {
-    location: 'Казань',
-    title: 'Аструм',
-    type: 'Жилой комплекс',
+    description: 'Lift solution tailored to a multi-unit residential context.',
+    location: 'Kazan',
+    title: 'Astrum',
+    type: 'Residential',
   },
   {
-    location: 'Тюмень',
-    title: 'Школа, микрорайон Богородский',
-    type: 'Образовательный объект',
+    description: 'Vertical mobility specified for a public educational building.',
+    location: 'Tyumen',
+    title: 'School, Bogorodsky',
+    type: 'Education',
   },
   {
-    location: 'Кострома',
-    title: 'Агрохим',
-    type: 'Промышленный объект',
+    description: 'Industrial installation balancing durability and serviceability.',
+    location: 'Kostroma',
+    title: 'Agrokhim',
+    type: 'Industrial',
   },
 ]

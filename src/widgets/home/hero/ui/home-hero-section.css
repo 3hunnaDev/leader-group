@@ -1,13 +1,9 @@
-.home-hero {
-  padding: 0 0.75rem;
-}
-
 .home-hero__title {
-  margin: 0;
-  max-width: 18ch;
-  font-size: clamp(2.5rem, 5.9vw, 6rem);
+  margin: 1rem 0 0;
+  max-width: 11ch;
+  font-size: clamp(3.5rem, 11vw, 6rem);
   font-weight: 800;
-  line-height: 0.9;
+  line-height: 0.94;
   letter-spacing: -0.034em;
   text-transform: uppercase;
   color: var(--color-text);
@@ -19,167 +15,66 @@
 
 .home-hero__head {
   display: grid;
-  gap: 1.35rem;
+  gap: 1.5rem;
   align-items: start;
 }
 
 .home-hero__side {
-  max-width: 24.5rem;
+  display: grid;
+  gap: 1.5rem;
+  align-self: end;
 }
 
 .home-hero__copy {
-  margin: 0;
-  font-size: 1.06rem;
-  line-height: 1.36;
-  font-weight: 600;
-  color: var(--color-text);
+  max-width: 25rem;
 }
 
-.home-hero__link {
-  margin-top: 1.95rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.78rem;
-  text-decoration: none;
-  font-size: 1.02rem;
-  font-weight: 800;
-  letter-spacing: 0.015em;
-  color: var(--color-text);
-}
-
-.home-hero__link-icon {
-  width: 2.9rem;
-  height: 2.9rem;
-  border-radius: 999px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--color-surface-dark);
-  color: var(--color-text-inverse);
+.home-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
 }
 
 .home-hero__media {
-  width: 100%;
-  min-height: 310px;
-  object-fit: cover;
-  object-position: center;
-  display: block;
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 0.875rem;
 }
 
-.home-hero__media-shell {
-  position: relative;
-  width: 100%;
-  border-radius: 28px;
-  overflow: hidden;
+.home-hero__media-main {
+  min-height: 17.5rem;
 }
 
-.home-hero__warranty-bar {
-  --warranty-gap: clamp(1rem, 2.2vw, 2rem);
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 2;
-  height: clamp(34px, 4.6vw, 46px);
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  pointer-events: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
-  opacity: 0;
-  transform: translate3d(0, -8px, 0);
-  transition:
-    opacity 0.5s ease-out,
-    transform 0.5s ease-out;
-  background: linear-gradient(
-    90deg,
-    rgba(21, 23, 31, 0.5) 0%,
-    rgba(21, 23, 31, 0.32) 45%,
-    rgba(21, 23, 31, 0.5) 100%
-  );
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+.home-hero__media-side {
+  min-height: 13.75rem;
 }
 
-.home-hero__warranty-bar--ready {
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
-}
-
-.home-hero__warranty-track {
-  display: flex;
-  align-items: center;
-  gap: var(--warranty-gap);
-  width: max-content;
-  will-change: transform;
-  transform: translate3d(-100%, 0, 0);
-  backface-visibility: hidden;
-}
-
-.home-hero__warranty-line {
-  flex: 0 0 auto;
-  display: inline-flex;
-  align-items: center;
-  gap: var(--warranty-gap);
-}
-
-.home-hero__warranty-item {
-  color: rgba(245, 245, 245, 0.96);
-  font-size: clamp(0.9rem, 1.6vw, 1.34rem);
-  font-weight: 800;
-  line-height: 0.9;
-  letter-spacing: -0.028em;
-  white-space: nowrap;
-  text-transform: uppercase;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+@media (min-width: 1200px) {
+  .home-hero__head {
+    grid-template-columns: minmax(0, 1fr) 25.5rem;
+    gap: 3.25rem;
+  }
 }
 
 @media (min-width: 1024px) {
-  .home-hero__head {
-    grid-template-columns: minmax(0, 1fr) minmax(330px, 390px);
-    gap: clamp(1.6rem, 2.4vw, 2.7rem);
-  }
-
-  .home-hero__media-shell {
-    margin-top: 2.15rem;
-    border-radius: 32px;
-  }
-
   .home-hero__media {
-    min-height: 548px;
+    margin-top: 2.625rem;
+    grid-template-columns: minmax(0, 1fr) 24rem;
+    gap: 1.125rem;
   }
-}
 
-.home-hero__link:hover {
-  opacity: 0.85;
-}
-
-.home-hero__title br {
-  display: block;
-}
-
-.home-hero__copy br {
-  display: none;
-}
-
-.home-hero__side p {
-  margin: 0;
+  .home-hero__media-main,
+  .home-hero__media-side {
+    min-height: 35rem;
+  }
 }
 
 @media (min-width: 640px) {
-  .home-hero {
-    padding-left: 1rem;
-    padding-right: 1rem;
+  .home-hero__media-main {
+    min-height: 21rem;
   }
 
-  .home-hero__copy {
-    font-size: 1.08rem;
-  }
-}
-
-@media (min-width: 1280px) {
-  .home-hero {
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
+  .home-hero__media-side {
+    min-height: 16.5rem;
   }
 }

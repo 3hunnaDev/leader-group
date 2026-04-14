@@ -10,14 +10,14 @@ describe('HashLink', () => {
     const scrollToSpy = vi.mocked(window.scrollTo)
 
     render(
-      <MemoryRouter initialEntries={['/#contacts']}>
+      <MemoryRouter initialEntries={['/#contact']}>
         <header className="site-header" />
-        <HashLink to="/#contacts">Контакты</HashLink>
-        <section id="contacts">Contacts section</section>
+        <HashLink to="/#contact">Contact</HashLink>
+        <section id="contact">Contacts section</section>
       </MemoryRouter>,
     )
 
-    await user.click(screen.getByRole('link', { name: 'Контакты' }))
+    await user.click(screen.getByRole('link', { name: 'Contact' }))
 
     expect(scrollToSpy).toHaveBeenCalled()
   })

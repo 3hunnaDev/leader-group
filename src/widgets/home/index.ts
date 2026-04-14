@@ -1,5 +1,6 @@
-export { HomeAboutSection } from './about/ui/home-about-section'
+export { HomeApproachSection } from './approach/ui/home-approach-section'
 export { HomeContactSection } from './contact/ui/home-contact-section'
 export { HomeHeroSection } from './hero/ui/home-hero-section'
+export { HomeProofSection } from './proof/ui/home-proof-section'
 export { HomeProjectsSection } from './projects/ui/home-projects-section'
 export { HomeServicesSection } from './services/ui/home-services-section'

@@ -16,8 +16,8 @@ describe('appRoutes', () => {
     render(<RouterProvider router={router} />)
 
     const heading = await screen.findByRole('heading', { level: 1 })
-    expect(heading).toHaveTextContent(/поставка и/i)
-    expect(heading).toHaveTextContent(/подъемных/i)
+    expect(heading).toHaveTextContent(/vertical mobility/i)
+    expect(heading).toHaveTextContent(/architecture/i)
   })
 
   it('renders the not found page for unknown routes', async () => {
@@ -35,13 +35,13 @@ describe('appRoutes', () => {
     render(<RouterProvider router={router} />)
 
     await waitFor(() => {
-      expect(document.title).toBe('Главная :: Leader Group')
+      expect(document.title).toBe('Home :: Leader Group')
     })
 
     await router.navigate('/#projects')
 
     await waitFor(() => {
-      expect(document.title).toBe('Наши проекты :: Leader Group')
+      expect(document.title).toBe('Projects :: Leader Group')
     })
   })
 })
