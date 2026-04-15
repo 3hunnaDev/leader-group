@@ -4,8 +4,7 @@ import { MediaPlaceholder } from '@shared/ui/media-placeholder'
 import './home-hero-section.css'
 
 export function HomeHeroSection() {
-  const { i18n, t } = useTranslation()
-  const isRussian = i18n.resolvedLanguage === 'ru'
+  const { t } = useTranslation()
 
   return (
     <section id="home" className="home-hero home-section">
@@ -13,39 +12,19 @@ export function HomeHeroSection() {
         <div>
           <span className="home-section__eyebrow">{t('hero.eyebrow')}</span>
           <h1 className="home-hero__title">
-            {isRussian ? (
-              <>
-                <span className="home-hero__title-line">{t('hero.titleLine1')}</span>
-                <span className="home-hero__title-line home-hero__title-line--ru-second">
-                  {t('hero.titleLine2')}
-                  <span className="home-hero__title-soft">
-                    &nbsp;
-                    {t('hero.titleLine2Soft')}
-                  </span>
+            <>
+              {t('hero.title')}
+              <span className="home-hero__title-cluster">
+                <span className="home-hero__title-soft">
+                  {t('hero.titleSoftStart')}
+                  &nbsp;
                 </span>
-                <span className="home-hero__title-line home-hero__title-line--ru-third">
-                  {t('hero.titleLine3')}
-                </span>
-                <span className="home-hero__title-line home-hero__title-line--ru-fourth">
-                  <span className="home-hero__title-soft">{t('hero.titleLine3Soft')}</span>
-                </span>
-              </>
-            ) : (
-              <>
-                {t('hero.title')}
-                <span className="home-hero__title-cluster">
-                  <span className="home-hero__title-soft">
-                    {t('hero.titleSoftStart')}
-                    &nbsp;
-                  </span>
-                  {t('hero.titleTail')}
-                  <span className="home-hero__title-soft">{t('hero.titleSoftEnd')}</span>
-                </span>
-              </>
-            )}
+                {t('hero.titleTail')}
+                <span className="home-hero__title-soft">{t('hero.titleSoftEnd')}</span>
+              </span>
+            </>
           </h1>
         </div>
-
         <div className="home-hero__side">
           <p className="home-section__copy home-hero__copy">{t('hero.description')}</p>
           <div className="home-hero__actions">
